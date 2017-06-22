@@ -1,0 +1,212 @@
+@charset "UTF-8";
+*:not(input, textarea) {
+  moz-user-select: -moz-none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.showbox {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 3.86473rem;
+  height: 2.31884rem;
+  background: red;
+  font-size: 0.77295rem; }
+
+#app {
+  position: absolute;
+  width: 16rem;
+  top: 0;
+  bottom: 0;
+  background: #000000;
+  overflow: hidden; }
+  #app .pages {
+    width: 100%;
+    height: 100%; }
+
+.show {
+  display: block !important; }
+
+.hide {
+  display: none !important; }
+
+.page {
+  width: 100%;
+  height: 100%;
+  display: none;
+  text-align: center; }
+
+.typo {
+  font-weight: 600;
+  font-family: 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+  font-size: 0.92754rem;
+  -webkit-font-smoothing: antialiased;
+  color: #FFFFFF; }
+  .typo div[ja-character] {
+    font-weight: 600;
+    font-family: 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+    font-size: 0.92754rem;
+    -webkit-font-smoothing: antialiased;
+    color: #FFFFFF; }
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%; }
+
+.page1 {
+  display: block; }
+  .page1 .tit1 {
+    width: 11.98068rem;
+    height: 1.15942rem;
+    margin-left: -5.99034rem;
+    margin-top: -1.3913rem; }
+  .page1 .button1 {
+    width: 4.63768rem;
+    height: 1.54589rem;
+    margin-left: -2.31884rem;
+    margin-top: 0.77295rem;
+    border: 0.03865rem solid #FFFFFF;
+    border-radius: 0.38647rem; }
+    .page1 .button1 .typo {
+      font-size: 0.61836rem; }
+
+.page2 .tit1 {
+  width: 4.01932rem;
+  height: 1.4686rem;
+  margin-left: -1.97101rem;
+  margin-top: -0.69565rem; }
+
+.page3 .tit1 {
+  width: 2.08696rem;
+  height: 1.4686rem;
+  margin-left: -1.00483rem;
+  margin-top: -0.69565rem; }
+
+.page4 .tit1 {
+  width: 1.12077rem;
+  height: 1.4686rem;
+  margin-left: -0.54106rem;
+  margin-top: -0.69565rem; }
+
+.page5 .tit1 {
+  width: 5.56522rem;
+  height: 1.4686rem;
+  margin-left: -2.74396rem;
+  margin-top: -0.69565rem; }
+
+.page6 .tit1 {
+  width: 4.98551rem;
+  height: 1.4686rem;
+  margin-left: -2.47343rem;
+  margin-top: -0.69565rem; }
+
+.page7 .tit1 {
+  width: 2.89855rem;
+  height: 1.4686rem;
+  margin-left: -1.42995rem;
+  margin-top: -0.69565rem; }
+
+.page8 .tit1 {
+  width: 7.84541rem;
+  height: 1.4686rem;
+  margin-left: -3.90338rem;
+  margin-top: -0.69565rem; }
+
+.page9 .tit1 {
+  width: 4.98551rem;
+  height: 1.4686rem;
+  margin-left: -2.47343rem;
+  margin-top: -0.69565rem; }
+
+.page10 .tit1 {
+  width: 2.08696rem;
+  height: 1.4686rem;
+  margin-left: -1.00483rem;
+  margin-top: -0.69565rem; }
+
+.page11 .tit1 {
+  width: 7.84541rem;
+  height: 1.4686rem;
+  margin-left: -3.90338rem;
+  margin-top: -0.69565rem; }
+  .page11 .tit1 .typo {
+    color: #000000; }
+
+.page13 .tit1 {
+  width: 4.98551rem;
+  height: 1.4686rem;
+  margin-left: -2.47343rem;
+  margin-top: -0.69565rem; }
+
+.page14 .tit1 {
+  width: 0.85024rem;
+  height: 1.4686rem;
+  margin-left: -0.38647rem;
+  margin-top: -0.69565rem; }
+
+.page15 .tit1 {
+  width: 0.85024rem;
+  height: 1.4686rem;
+  margin-left: -0.38647rem;
+  margin-top: -0.69565rem; }
+
+.page16 .tit1 {
+  width: 0.85024rem;
+  height: 1.4686rem;
+  margin-left: -0.38647rem;
+  margin-top: -0.69565rem; }
+
+.page17 .video1 {
+  width: 16rem;
+  height: 100%; }
+
+.page18 .img1 {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+.page18 .bgimg {
+  height: 100%;
+  width: 100%;
+  background-image: url(../images/dlytr.png);
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.page19 .img1 {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+.page19 .bgimg {
+  height: 100%;
+  width: 100%;
+  background-image: url(../images/dlytr2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: translate3d(0, 0, 0); }
+
+.page20 .img1 {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+.page20 .bgimg {
+  height: 100%;
+  width: 100%;
+  background-image: url(../images/dlytr3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: translate3d(0, 0, 0); }
+
+.page21 .tit1 {
+  width: 5.48792rem;
+  height: 1.42995rem;
+  margin-left: -2.70531rem;
+  margin-top: -0.69565rem; }
+
+/*# sourceMappingURL=style.css.map */
