@@ -60,12 +60,12 @@ var preloadfiles = [
 for (var i = 1; i < 31; i++) {
     preloadfiles.push('./assets/images/human/human' + i + '.png');
 }
-for (var i = 1; i < 16; i++) {
+for (var i = 1; i < 18; i++) {
     preloadfiles.push('./assets/images/work/work' + i + '.png');
 }
 for (var i = 1; i < 4; i++) {
     preloadfiles.push('./assets/images/building' + i + '.png');
-    preloadfiles.push('./assets/images/flash' + i + '.png');
+    // preloadfiles.push('./assets/images/flash' + i + '.png');
 }
 queue.loadManifest(preloadfiles);
 
