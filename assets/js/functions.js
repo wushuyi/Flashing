@@ -884,7 +884,7 @@ function handleComplete() {
                 fill: 'both',
                 easing: 'easeOutCubic',
             }).on('finish', function () {
-                setTimeout(next, 100);
+                setTimeout(next, 800);
             });
             setTimeout(function () {
                 $page.show();
