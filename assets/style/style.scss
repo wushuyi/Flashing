@@ -679,6 +679,104 @@ $designWidth: 414;
       }
     }
   }
+  .imgbox1 {
+    width: px2rem(414);
+    height: px2rem(156);
+    margin-left: px2rem(-207);
+    margin-top: px2rem(-77);
+    .img1 {
+      background-image: url(../images/logo.png);
+      width: px2rem(414);
+      height: px2rem(154);
+    }
+  }
+}
+
+.page37 {
+  .img-box {
+    position: absolute;
+    top: 0;
+  }
+  .img {
+    width: px2rem(414);
+    height: 100vh;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+  .img1 {
+    background-image: url(../images/master/robin_king.png);
+  }
+  .img2 {
+    background-image: url(../images/master/hartmut_esslinger.png);
+  }
+  .tit1 {
+    width: px2rem(414);
+    height: px2rem(73);
+    margin-left: px2rem(-207);
+    margin-top: px2rem(-36);
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #FFFFFF;
+      opacity: 0.6;
+    }
+    .typo {
+      z-index: 1;
+      position: relative;
+      color: #000000;
+      //font-size: px2rem(16);
+    }
+  }
+}
+
+.page38 {
+  .img-box {
+    position: absolute;
+    top: 0;
+  }
+  .img {
+    width: px2rem(414);
+    height: 100vh;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+  .img1 {
+    background-image: url(../images/Invitation.png);
+    background-color: #BD1C20;
+    background-size: 100%;
+    background-position: 50% 50%;
+  }
+  .img2 {
+    background-image: url(../images/fly.png);
+  }
+  .tit1 {
+    width: px2rem(414);
+    height: px2rem(37);
+    margin-left: px2rem(-207);
+    margin-top: px2rem(-18);
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #FFFFFF;
+      opacity: 0.6;
+    }
+    .typo {
+      z-index: 1;
+      position: relative;
+      color: #000000;
+      //font-size: px2rem(16);
+    }
+  }
 }
 
 .page12 {

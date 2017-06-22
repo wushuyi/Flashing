@@ -55,10 +55,9 @@ function handleComplete() {
         src: ['./assets/audio/flashing_audio.mp3'],
         loop: true,
     });
-    // sound.play();
-    var rythm = new Rythm();
-    rythm.setMusic(sound);
-    rythm.addRythm('pulse2', 'pulse', 0, 10, {min: 1, max: 1.3});
+    // var rythm = new Rythm();
+    // rythm.setMusic(sound);
+    // rythm.addRythm('pulse2', 'pulse', 0, 10, {min: 1, max: 1.3});
 // var waveLow = true;
 // var waveHigh = true;
 // var $num = $('#num');
@@ -88,8 +87,9 @@ function handleComplete() {
         function page1($page, next) {
             $page.find('.button1').one('click', function () {
                 next();
-                rythm.setGain(1);
-                rythm.start();
+                sound.play();
+                // rythm.setGain(1);
+                // rythm.start();
             });
         },
         function page2($page, next) {
@@ -308,7 +308,7 @@ function handleComplete() {
                 createAnimate($tit2, allCss, function () {
                     createAnimate($tit3, allCss, function () {
                         createAnimate($tit4, allCss, function () {
-                            next();
+                            setTimeout(next, 0);
                         });
                     });
                 });
@@ -433,6 +433,7 @@ function handleComplete() {
                 function end(canvas, next) {
                     player.destroy();
                     player = null;
+                    $(canvas).remove();
                     setTimeout(parentNext, 0);
                 }
             ];
@@ -661,6 +662,10 @@ function handleComplete() {
         },
         function page36($page, next) {
             var $tit1 = $page.find('.tit1');
+            var $imgbox1 = $page.find('.imgbox1');
+            $imgbox1.css({
+                opacity: 0
+            });
             var preanimation = animation;
             var letters = just.splitText($tit1.find('.typo').get(0)).characters;
             animation = just.animate({
@@ -689,7 +694,7 @@ function handleComplete() {
                         transform: 'translate3d(0, 0, 0)'
                     },
                     {
-                        transform: 'translate3d(0 , ' + (-160 * hotcss.dpr) + 'px , 0)'
+                        transform: 'translate3d(0 , ' + (-100 * hotcss.dpr) + 'px , 0)'
                     },
                 ],
                 delay: function () {
@@ -698,9 +703,113 @@ function handleComplete() {
                 to: 600,
                 fill: 'both',
                 easing: 'easeOutCubic',
+            }).animate({
+                targets: $imgbox1.get(0),
+                css: [
+                    {
+                        opacity: 0,
+                        transform: 'scale3d(2, 2, 2)'
+                    },
+                    {
+                        opacity: 1,
+                        transform: 'scale3d(0.8 , 0.8 , 0.8)'
+                    },
+                ],
+                to: 400,
+                fill: 'both',
+                easing: 'easeOutCubic',
             }).on('finish', function () {
-                // setTimeout(next, 100);
+                setTimeout(next, 100);
             });
+            setTimeout(function () {
+                $page.show();
+                preanimation && preanimation.cancel();
+            }, 10);
+        },
+        function page37($page, next) {
+            var $img1 = $page.find('.img1');
+            var $img2 = $page.find('.img2');
+            var preanimation = animation;
+            var createAnimate = function ($el, cb, notOut) {
+                animation = just.animate({
+                    targets: $el.get(0),
+                    css: [
+                        {
+                            transform: 'translateZ(0) scale3d(1, 1, 1)'
+                        },
+                        {
+                            transform: 'translateZ(0) scale3d(1.1, 1.1, 1.1)'
+                        },
+                    ],
+                    fill: 'both',
+                    easing: 'linear',
+                    to: 800,
+                });
+                if (!notOut) {
+                    animation.animate({
+                        targets: $el.get(0),
+                        mixins: 'fadeOut',
+                        fill: 'both',
+                        easing: 'linear',
+                        delay: 1000,
+                        to: 300,
+                    }).on('finish', function () {
+                        cb();
+                    });
+                } else {
+                    setTimeout(cb, 1000);
+                }
+            };
+            createAnimate($img2, function () {
+                $page.find('.name').text('罗宾京');
+                createAnimate($img1, function () {
+                    setTimeout(next, 100);
+                }, true);
+            });
+
+            setTimeout(function () {
+                $page.show();
+                preanimation && preanimation.cancel();
+            }, 10);
+        },
+        function page38($page, next) {
+            var $img1 = $page.find('.img1');
+            var $img2 = $page.find('.img2');
+            var preanimation = animation;
+            var createAnimate = function ($el, cb, notOut) {
+                animation = just.animate({
+                    targets: $el.get(0),
+                    css: [
+                        {
+                            transform: 'translateZ(0) scale3d(1, 1, 1)'
+                        },
+                        {
+                            transform: 'translateZ(0) scale3d(1.1, 1.1, 1.1)'
+                        },
+                    ],
+                    fill: 'both',
+                    easing: 'linear',
+                    to: 800,
+                });
+                if (!notOut) {
+                    animation.animate({
+                        targets: [$el.get(0), $page.find('.tit1').get(0)],
+                        mixins: 'fadeOut',
+                        fill: 'both',
+                        easing: 'linear',
+                        delay: 1000,
+                        to: 300,
+                    }).on('finish', function () {
+                        cb();
+                    });
+                } else {
+                    setTimeout(cb, 1000);
+                }
+            };
+            createAnimate($img2, function () {
+                sound.pause();
+            });
+
             setTimeout(function () {
                 $page.show();
                 preanimation && preanimation.cancel();
@@ -738,10 +847,7 @@ function handleComplete() {
         };
     })();
 
-    // runAnimate.next();
-
-    runAnimate.next(34);
+    runAnimate.next();
+    // runAnimate.next(35);
 
 }
-
-
