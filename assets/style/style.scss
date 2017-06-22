@@ -431,12 +431,12 @@ $designWidth: 414;
   .img3 {
     background-image: url(../images/building3.png);
   }
-  .tit1{
+  .tit1 {
     width: px2rem(414);
     height: px2rem(75);
     margin-left: px2rem(-207);
     margin-top: px2rem(-38);
-    &:before{
+    &:before {
       content: '';
       display: block;
       position: absolute;
@@ -447,7 +447,7 @@ $designWidth: 414;
       background: #FFFFFF;
       opacity: 0.6;
     }
-    .typo{
+    .typo {
       z-index: 1;
       position: relative;
       color: #000000;
@@ -461,6 +461,79 @@ $designWidth: 414;
     width: px2rem(79);
     height: px2rem(25);
     margin-left: px2rem(-39);
+    margin-top: px2rem(-12);
+  }
+}
+
+.page24 {
+  .tit1 {
+    width: px2rem(104);
+    height: px2rem(25);
+    margin-left: px2rem(-51);
+    margin-top: px2rem(-160);
+  }
+  .video1 {
+    width: px2rem(433);
+    height: px2rem(241);
+    margin-left: px2rem(-216);
+    margin-top: px2rem(-120);
+    canvas{
+      width: px2rem(414);
+      height: px2rem(232)
+    }
+  }
+}
+
+.page25 {
+  .img-box {
+    width: px2rem(414);
+    height: 33.33%;
+  }
+  .img {
+    width: px2rem(414);
+    height: 34vh;
+    background-size: cover;
+    background-position: 100% 50%;
+  }
+  .img1 {
+    background-image: url(../images/flash1.png);
+  }
+  .img2 {
+    background-image: url(../images/flash2.png);
+  }
+  .img3 {
+    background-image: url(../images/flash3.png);
+  }
+  .tit1 {
+    width: px2rem(414);
+    height: px2rem(38);
+    margin-left: px2rem(-207);
+    margin-top: px2rem(-19);
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #FFFFFF;
+      opacity: 0.6;
+    }
+    .typo {
+      z-index: 1;
+      position: relative;
+      color: #000000;
+      //font-size: px2rem(16);
+    }
+  }
+}
+
+.page26 {
+  .tit1 {
+    width: px2rem(127);
+    height: px2rem(25);
+    margin-left: px2rem(-63);
     margin-top: px2rem(-12);
   }
 }

@@ -348,4 +348,58 @@
   margin-left: -1.50725rem;
   margin-top: -0.46377rem; }
 
+.page24 .tit1 {
+  width: 4.01932rem;
+  height: 0.96618rem;
+  margin-left: -1.97101rem;
+  margin-top: -6.18357rem; }
+.page24 .video1 {
+  width: 16.7343rem;
+  height: 9.31401rem;
+  margin-left: -8.34783rem;
+  margin-top: -4.63768rem; }
+  .page24 .video1 canvas {
+    width: 16rem;
+    height: 8.96618rem; }
+
+.page25 .img-box {
+  width: 16rem;
+  height: 33.33%; }
+.page25 .img {
+  width: 16rem;
+  height: 34vh;
+  background-size: cover;
+  background-position: 100% 50%; }
+.page25 .img1 {
+  background-image: url(../images/flash1.png); }
+.page25 .img2 {
+  background-image: url(../images/flash2.png); }
+.page25 .img3 {
+  background-image: url(../images/flash3.png); }
+.page25 .tit1 {
+  width: 16rem;
+  height: 1.4686rem;
+  margin-left: -8rem;
+  margin-top: -0.7343rem; }
+  .page25 .tit1:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #FFFFFF;
+    opacity: 0.6; }
+  .page25 .tit1 .typo {
+    z-index: 1;
+    position: relative;
+    color: #000000; }
+
+.page26 .tit1 {
+  width: 4.90821rem;
+  height: 0.96618rem;
+  margin-left: -2.43478rem;
+  margin-top: -0.46377rem; }
+
 /*# sourceMappingURL=style.css.map */

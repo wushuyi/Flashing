@@ -28,6 +28,16 @@
         lastTouchEnd = now;
     }, supportsPassiveOption ? {passive: false, capture: false} : false);
 })();
+//
+(function (JSMpeg) {
+    var pause = JSMpeg.Player.prototype.pause;
+    JSMpeg.Player.prototype.pause = function () {
+        pause.call(this);
+        if (this.onpause) {
+            setTimeout(this.onpause, 0);
+        }
+    };
+})(JSMpeg);
 
 //消除点击延迟
 var swiftclick = SwiftClick.attach(document.body);
@@ -36,14 +46,19 @@ var queue = new createjs.LoadQueue();
 queue.on("complete", handleComplete, this);
 queue.loadManifest([
     './assets/audio/flashing_audio.mp3',
-    './assets/video/out.ts',
+    './assets/video/video1.mp4',
+    './assets/video/video2.mp4',
+    './assets/video/video3.mp4',
+    './assets/video/video4.mp4',
 ]);
 
 function handleComplete() {
     $('.page1').find('.button1 .typo').text('点击进入');
     var sound = new Howl({
-        src: ['./assets/audio/flashing_audio.mp3']
+        src: ['./assets/audio/flashing_audio.mp3'],
+        loop: true,
     });
+    // sound.play();
     var rythm = new Rythm();
     rythm.setMusic(sound);
     rythm.addRythm('pulse2', 'pulse', 0, 10, {min: 1, max: 1.3});
@@ -395,7 +410,144 @@ function handleComplete() {
                 preanimation && preanimation.cancel();
             }, 10);
         },
-        function next($page, next) {
+        function page23($page, next) {
+            $page.show();
+            setTimeout(next, 1000);
+        },
+        function page24($page, next) {
+            $page.show();
+            var parentNext = next;
+            var player = null;
+            var playerList = [
+                function start(canvas, next) {
+                    // sound.pause();
+                    setTimeout(next, 0);
+                },
+                function video1(canvas, next) {
+                    player = new JSMpeg.Player('./assets/video/video1.mp4', {
+                        canvas: canvas,
+                        autoplay: true,
+                        loop: false,
+                    });
+                    player.onpause = function () {
+                        next();
+                    };
+                },
+                function video2(canvas, next) {
+                    player = new JSMpeg.Player('./assets/video/video2.mp4', {
+                        canvas: canvas,
+                        autoplay: true,
+                        loop: false,
+                    });
+                    player.onpause = function () {
+                        next();
+                    };
+                },
+                function video3(canvas, next) {
+                    player = new JSMpeg.Player('./assets/video/video3.mp4', {
+                        canvas: canvas,
+                        autoplay: true,
+                        loop: false,
+                    });
+                    player.onpause = function () {
+                        next();
+                    };
+                },
+                function video4(canvas, next) {
+                    player = new JSMpeg.Player('./assets/video/video4.mp4', {
+                        canvas: canvas,
+                        autoplay: true,
+                        loop: false,
+                    });
+                    player.onpause = function () {
+                        next();
+                    };
+                },
+                function end(canvas, next) {
+                    player.destroy();
+                    player = null;
+                    sound.play();
+                    setTimeout(parentNext, 0);
+                }
+            ];
+            var players = (function ($page) {
+                var canvas = $page.find('.video1 canvas').get(0);
+                var len = playerList.length;
+                var index = 0;
+                var arr = [];
+                var slice = arr.slice;
+
+                function next(num) {
+                    if (num) {
+                        index = num;
+                    }
+                    if (index < len) {
+                        var args = $.fn.toArray(arguments).slice(1);
+                        playerList[index] && playerList[index].apply(null, [canvas, next]);
+                        index += 1;
+                    }
+                }
+
+                return {
+                    next: next
+                };
+            })($page);
+            players.next();
+            // setTimeout(next, 300);
+        },
+        function page25($page, next) {
+            var $img1 = $page.find('.img1');
+            var $img2 = $page.find('.img2');
+            var $img3 = $page.find('.img3');
+            $img1.hide();
+            $img2.hide();
+            $img3.hide();
+            var winW = $(window).width();
+            var css1 = [
+                {
+                    transform: 'translate3d(' + winW + 'px, 0, 0)'
+                },
+                {
+                    transform: 'translate3d(0, 0, 0)'
+                },
+            ];
+            var css2 = [
+                {
+                    transform: 'translate3d(' + -winW + 'px, 0, 0)'
+                },
+                {
+                    transform: 'translate3d(0, 0, 0)'
+                },
+            ];
+            var preanimation = animation;
+            var createAnimate = function ($el, css, cb) {
+                animation = just.animate({
+                    targets: $el.get(0),
+                    css: css,
+                    fill: 'both',
+                    easing: 'easeOutCubic',
+                    to: 600,
+                }).on('finish', function () {
+                    cb && cb();
+                });
+                $el.show();
+            };
+            createAnimate($img1, css1);
+            createAnimate($img2, css2);
+            createAnimate($img3, css1, function(){
+                setTimeout(next, 300);
+            });
+
+            setTimeout(function () {
+                $page.show();
+                preanimation && preanimation.cancel();
+            }, 10);
+        },
+        function page26($page, next) {
+            $page.show();
+            setTimeout(next, 300);
+        },
+        function page27($page, next) {
             $page.show();
             setTimeout(next, 1000);
         },
@@ -430,9 +582,9 @@ function handleComplete() {
         };
     })();
 
-    // runAnimate.next();
+    runAnimate.next();
 
-    runAnimate.next(21);
+    // runAnimate.next(23);
 
 }
 
