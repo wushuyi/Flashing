@@ -502,6 +502,7 @@ $designWidth: 414;
     height: 34vh;
     background-size: cover;
     background-position: 100% 50%;
+    position: absolute;
   }
   .img1 {
     background-image: url(../images/flash1.png);
@@ -634,20 +635,20 @@ $designWidth: 414;
   }
 }
 
-.page33 {
-  .img-content {
-    width: px2rem(414);
-    height: 100vh;
-    position: absolute;
-    .img-box {
-      float: left;
-    }
-    .img {
-      width: px2rem(138);
-      height: 20vh;
-    }
-  }
-}
+//.page33 {
+//  .img-content {
+//    width: px2rem(414);
+//    height: 100vh;
+//    position: absolute;
+//    .img-box {
+//      float: left;
+//    }
+//    .img {
+//      width: px2rem(138);
+//      height: 20vh;
+//    }
+//  }
+//}
 
 .page34 {
   .tit1 {

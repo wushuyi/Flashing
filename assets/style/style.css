@@ -375,7 +375,8 @@
   width: 16rem;
   height: 34vh;
   background-size: cover;
-  background-position: 100% 50%; }
+  background-position: 100% 50%;
+  position: absolute; }
 .page25 .img1 {
   background-image: url(../images/flash1.png); }
 .page25 .img2 {
@@ -473,16 +474,6 @@
     .page32 .tit1 .typo div[ja-character] {
       font-size: 1.93237rem;
       letter-spacing: 0.38647rem; }
-
-.page33 .img-content {
-  width: 16rem;
-  height: 100vh;
-  position: absolute; }
-  .page33 .img-content .img-box {
-    float: left; }
-  .page33 .img-content .img {
-    width: 5.33333rem;
-    height: 20vh; }
 
 .page34 .tit1 {
   width: 4.01932rem;

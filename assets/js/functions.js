@@ -482,12 +482,25 @@ function handleComplete() {
             // setTimeout(next, 300);
         },
         function page25($page, next) {
-            var $img1 = $page.find('.img1');
-            var $img2 = $page.find('.img2');
-            var $img3 = $page.find('.img3');
-            $img1.hide();
-            $img2.hide();
-            $img3.hide();
+            // var $img1 = $page.find('.img1');
+            // var $img2 = $page.find('.img2');
+            // var $img3 = $page.find('.img3');
+            // $img1.hide();
+            // $img2.hide();
+            // $img3.hide();
+            var $imgBox = $page.find('.img-box');
+            var imgIndex = 0;
+            var $imgList = [];
+            for (var j = 0; j < 6; j++) {
+                for (var i = 0; i < 3; i++) {
+                    imgIndex += 1;
+                    var $img = $('<div class="img" style="background-image: url(./assets/images/work/work' + imgIndex + '.png);"></div>');
+                    $imgList.push($img);
+                    $imgBox.eq(i).append($img);
+                }
+            }
+            var $img = $page.find('.img');
+            $img.hide();
             var winW = $(window).width();
             var css1 = [
                 {
@@ -512,16 +525,59 @@ function handleComplete() {
                     css: css,
                     fill: 'both',
                     easing: 'easeOutCubic',
-                    to: 800,
+                    to: 300,
                 }).on('finish', function () {
                     cb && cb();
                 });
-                $el.show();
+                setTimeout(function () {
+                    $el.show();
+                }, 10);
             };
-            createAnimate($img1, css1);
-            createAnimate($img2, css2);
-            createAnimate($img3, css1, function () {
-                setTimeout(next, 400);
+            // createAnimate($img2, css2);
+            createAnimate($imgList[0], css1, function () {
+                createAnimate($imgList[1], css2, function () {
+
+                    createAnimate($imgList[2], css1, function () {
+                        createAnimate($imgList[3], css2, function () {
+
+                            createAnimate($imgList[4], css1, function () {
+                                createAnimate($imgList[5], css2, function () {
+
+                                    createAnimate($imgList[6], css1, function () {
+                                        createAnimate($imgList[7], css2, function () {
+
+                                            createAnimate($imgList[8], css1, function () {
+                                                createAnimate($imgList[9], css2, function () {
+
+                                                    createAnimate($imgList[10], css1, function () {
+                                                        createAnimate($imgList[11], css2, function () {
+
+                                                            createAnimate($imgList[12], css1, function () {
+                                                                createAnimate($imgList[13], css2, function () {
+
+                                                                    createAnimate($imgList[14], css1, function () {
+                                                                        createAnimate($imgList[15], css2, function () {
+
+                                                                            createAnimate($imgList[16], css1, function () {
+                                                                                createAnimate($imgList[17], css2, function () {
+                                                                                    setTimeout(next, 10);
+                                                                                });
+                                                                            });
+                                                                        });
+                                                                    });
+                                                                });
+                                                            });
+                                                        });
+                                                    });
+                                                });
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
             });
 
             setTimeout(function () {
@@ -640,37 +696,37 @@ function handleComplete() {
                 preanimation && preanimation.cancel();
             }, 10);
         },
-        function page33($page, next) {
-            var $imgContent = $page.find('.img-content');
-            var html = '';
-            var work = 0, top = 0, left = 0;
-            for (var i = 0; i < 3; i++) {
-                for (var j = 1; j < 6; j++) {
-                    work += 1;
-                    html += '<div class="img-box">' +
-                        '<div class="img" style="background-image: url(./assets/images/work/work' + (work) + '.png);"></div>' +
-                        '</div>';
-                }
-            }
-            $imgContent.append(html);
-            var $imgBox = $imgContent.find('.img-box');
-            var preanimation = animation;
-            animation = just.animate({
-                targets: $imgBox.toArray(),
-                delay: function () {
-                    return '+=300ms';
-                },
-                mixins: 'flipInY',
-                fill: 'both',
-                easing: 'easeInOut',
-            }).on('finish', function () {
-                setTimeout(next, 100);
-            });
-            setTimeout(function () {
-                $page.show();
-                preanimation && preanimation.cancel();
-            }, 10);
-        },
+        // function page33($page, next) {
+        //     var $imgContent = $page.find('.img-content');
+        //     var html = '';
+        //     var work = 0, top = 0, left = 0;
+        //     for (var i = 0; i < 3; i++) {
+        //         for (var j = 1; j < 6; j++) {
+        //             work += 1;
+        //             html += '<div class="img-box">' +
+        //                 '<div class="img" style="background-image: url(./assets/images/work/work' + (work) + '.png);"></div>' +
+        //                 '</div>';
+        //         }
+        //     }
+        //     $imgContent.append(html);
+        //     var $imgBox = $imgContent.find('.img-box');
+        //     var preanimation = animation;
+        //     animation = just.animate({
+        //         targets: $imgBox.toArray(),
+        //         delay: function () {
+        //             return '+=300ms';
+        //         },
+        //         mixins: 'flipInY',
+        //         fill: 'both',
+        //         easing: 'easeInOut',
+        //     }).on('finish', function () {
+        //         setTimeout(next, 100);
+        //     });
+        //     setTimeout(function () {
+        //         $page.show();
+        //         preanimation && preanimation.cancel();
+        //     }, 10);
+        // },
         function page34($page, next) {
             $page.show();
             setTimeout(next, 400);
@@ -941,7 +997,7 @@ function handleComplete() {
         };
     })();
     // sound.play();
-    runAnimate.next();
+    runAnimate.next(24);
     // runAnimate.next(37);
 
 }
