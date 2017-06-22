@@ -477,7 +477,7 @@ $designWidth: 414;
     height: px2rem(241);
     margin-left: px2rem(-216);
     margin-top: px2rem(-120);
-    canvas{
+    canvas {
       width: px2rem(414);
       height: px2rem(232)
     }
@@ -535,6 +535,101 @@ $designWidth: 414;
     height: px2rem(25);
     margin-left: px2rem(-63);
     margin-top: px2rem(-12);
+  }
+}
+
+.page27 {
+  .tit1 {
+    width: px2rem(127);
+    height: px2rem(25);
+    margin-left: px2rem(-63);
+    margin-top: px2rem(-12);
+  }
+}
+
+.page28 {
+  background: #FFFFFF;
+  .tit1 {
+    width: px2rem(55);
+    height: px2rem(377);
+    margin-left: px2rem(-27);
+    margin-top: px2rem(-188);
+    .typo {
+      line-height: 130%;
+      white-space: normal;
+      font-size: px2rem(50);
+      color: #000000;
+      div[ja-character] {
+        line-height: 130%;
+        white-space: normal;
+        font-size: px2rem(50);
+        color: #000000;
+      }
+    }
+  }
+}
+
+.page29 {
+  .tit1 {
+    width: px2rem(228);
+    height: px2rem(25);
+    margin-left: px2rem(-113);
+    margin-top: px2rem(-12);
+  }
+}
+
+.page30 {
+  .tit1 {
+    width: px2rem(228);
+    height: px2rem(25);
+    margin-left: px2rem(-113);
+    margin-top: px2rem(-12);
+  }
+}
+
+.page31 {
+  background: #FFFFFF;
+  .tit1 {
+    width: px2rem(56);
+    height: px2rem(321);
+    margin-left: px2rem(-27);
+    margin-top: px2rem(-160);
+    .typo {
+      line-height: 130%;
+      white-space: normal;
+      font-size: px2rem(50);
+      color: #000000;
+      div[ja-character] {
+        line-height: 130%;
+        white-space: normal;
+        font-size: px2rem(50);
+        color: #000000;
+      }
+    }
+  }
+}
+
+.page32 {
+  .tit1 {
+    width: px2rem(191);
+    height: px2rem(52);
+    margin-left: px2rem(-95);
+    margin-top: px2rem(-25);
+    .typo {
+      font-size: px2rem(50);
+      letter-spacing: px2rem(10);
+      div[ja-character] {
+        font-size: px2rem(50);
+        letter-spacing: px2rem(10);
+      }
+    }
+  }
+}
+
+.page33 {
+  .img-box {
+    width: px2rem(414);
+    height: 100vh;
   }
 }
 

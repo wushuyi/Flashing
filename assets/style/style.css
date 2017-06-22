@@ -402,4 +402,74 @@
   margin-left: -2.43478rem;
   margin-top: -0.46377rem; }
 
+.page27 .tit1 {
+  width: 4.90821rem;
+  height: 0.96618rem;
+  margin-left: -2.43478rem;
+  margin-top: -0.46377rem; }
+
+.page28 {
+  background: #FFFFFF; }
+  .page28 .tit1 {
+    width: 2.1256rem;
+    height: 14.57005rem;
+    margin-left: -1.04348rem;
+    margin-top: -7.2657rem; }
+    .page28 .tit1 .typo {
+      line-height: 130%;
+      white-space: normal;
+      font-size: 1.93237rem;
+      color: #000000; }
+      .page28 .tit1 .typo div[ja-character] {
+        line-height: 130%;
+        white-space: normal;
+        font-size: 1.93237rem;
+        color: #000000; }
+
+.page29 .tit1 {
+  width: 8.81159rem;
+  height: 0.96618rem;
+  margin-left: -4.36715rem;
+  margin-top: -0.46377rem; }
+
+.page30 .tit1 {
+  width: 8.81159rem;
+  height: 0.96618rem;
+  margin-left: -4.36715rem;
+  margin-top: -0.46377rem; }
+
+.page31 {
+  background: #FFFFFF; }
+  .page31 .tit1 {
+    width: 2.16425rem;
+    height: 12.4058rem;
+    margin-left: -1.04348rem;
+    margin-top: -6.18357rem; }
+    .page31 .tit1 .typo {
+      line-height: 130%;
+      white-space: normal;
+      font-size: 1.93237rem;
+      color: #000000; }
+      .page31 .tit1 .typo div[ja-character] {
+        line-height: 130%;
+        white-space: normal;
+        font-size: 1.93237rem;
+        color: #000000; }
+
+.page32 .tit1 {
+  width: 7.38164rem;
+  height: 2.00966rem;
+  margin-left: -3.6715rem;
+  margin-top: -0.96618rem; }
+  .page32 .tit1 .typo {
+    font-size: 1.93237rem;
+    letter-spacing: 0.38647rem; }
+    .page32 .tit1 .typo div[ja-character] {
+      font-size: 1.93237rem;
+      letter-spacing: 0.38647rem; }
+
+.page33 .img-box {
+  width: 16rem;
+  height: 100vh; }
+
 /*# sourceMappingURL=style.css.map */

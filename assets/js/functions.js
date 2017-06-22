@@ -46,10 +46,7 @@ var queue = new createjs.LoadQueue();
 queue.on("complete", handleComplete, this);
 queue.loadManifest([
     './assets/audio/flashing_audio.mp3',
-    './assets/video/video1.mp4',
-    './assets/video/video2.mp4',
-    './assets/video/video3.mp4',
-    './assets/video/video4.mp4',
+    './assets/video/video.mp4',
 ]);
 
 function handleComplete() {
@@ -340,7 +337,7 @@ function handleComplete() {
                 easing: 'linear',
                 to: 1000,
             }).on('finish', function () {
-                // setTimeout(next, 10);
+                setTimeout(next, 10);
             });
             setTimeout(function () {
                 $page.show();
@@ -424,37 +421,7 @@ function handleComplete() {
                     setTimeout(next, 0);
                 },
                 function video1(canvas, next) {
-                    player = new JSMpeg.Player('./assets/video/video1.mp4', {
-                        canvas: canvas,
-                        autoplay: true,
-                        loop: false,
-                    });
-                    player.onpause = function () {
-                        next();
-                    };
-                },
-                function video2(canvas, next) {
-                    player = new JSMpeg.Player('./assets/video/video2.mp4', {
-                        canvas: canvas,
-                        autoplay: true,
-                        loop: false,
-                    });
-                    player.onpause = function () {
-                        next();
-                    };
-                },
-                function video3(canvas, next) {
-                    player = new JSMpeg.Player('./assets/video/video3.mp4', {
-                        canvas: canvas,
-                        autoplay: true,
-                        loop: false,
-                    });
-                    player.onpause = function () {
-                        next();
-                    };
-                },
-                function video4(canvas, next) {
-                    player = new JSMpeg.Player('./assets/video/video4.mp4', {
+                    player = new JSMpeg.Player('./assets/video/video.mp4', {
                         canvas: canvas,
                         autoplay: true,
                         loop: false,
@@ -466,7 +433,6 @@ function handleComplete() {
                 function end(canvas, next) {
                     player.destroy();
                     player = null;
-                    sound.play();
                     setTimeout(parentNext, 0);
                 }
             ];
@@ -534,7 +500,7 @@ function handleComplete() {
             };
             createAnimate($img1, css1);
             createAnimate($img2, css2);
-            createAnimate($img3, css1, function(){
+            createAnimate($img3, css1, function () {
                 setTimeout(next, 300);
             });
 
@@ -551,8 +517,112 @@ function handleComplete() {
             $page.show();
             setTimeout(next, 1000);
         },
+        function page28($page, next) {
+            var $tit1 = $page.find('.tit1');
+            var preanimation = animation;
+            var letters = just.splitText($tit1.find('.typo').get(0)).characters;
+            animation = just.animate({
+                targets: letters,
+                delay: function () {
+                    return '+=100ms';
+                },
+                mixins: 'flipInX',
+                fill: 'both',
+                easing: 'easeOutCubic',
+            }).on('finish', function () {
+                setTimeout(next, 10);
+            });
+            setTimeout(function () {
+                $page.show();
+                preanimation && preanimation.cancel();
+            }, 10);
+
+        },
+        function page29($page, next) {
+            $page.show();
+            setTimeout(next, 300);
+        },
+        function page30($page, next) {
+            $page.show();
+            setTimeout(next, 300);
+        },
+        function page31($page, next) {
+            var $tit1 = $page.find('.tit1');
+            var preanimation = animation;
+            var letters = just.splitText($tit1.find('.typo').get(0)).characters;
+            animation = just.animate({
+                targets: letters,
+                delay: function () {
+                    return '+=80ms';
+                },
+                mixins: 'zoomInDown',
+                fill: 'both',
+                easing: 'easeOutCubic',
+            }).on('finish', function () {
+                setTimeout(next, 100);
+            });
+            setTimeout(function () {
+                $page.show();
+                preanimation && preanimation.cancel();
+            }, 10);
+        },
+        function page32($page, next) {
+            var $tit1 = $page.find('.tit1');
+            var preanimation = animation;
+            var letters = just.splitText($tit1.find('.typo').get(0)).characters;
+            animation = just.animate({
+                targets: letters,
+                css: [
+                    {
+                        transform: 'scale3d(1, 1, 1)',
+                        color: '#FFFFFF',
+                    },
+                    {
+                        transform: 'scale3d(0.8, 0.8, 0.8)',
+                        color: '#FD0201',
+                    },
+                    {
+                        transform: 'scale3d(1.2, 1.2, 1.2)',
+                        color: '#6F08BB',
+                    },
+                    {
+                        transform: 'scale3d(0.8, 0.8, 0.8)',
+                        color: '#EDC703',
+                    },
+                    {
+                        transform: 'scale3d(1.2, 1.2, 1.2)',
+                        color: '#01A517',
+                    },
+                    {
+                        transform: 'scale3d(0.8, 0.8, 0.8)',
+                        color: '#052CC7',
+                    },
+                    {
+                        transform: 'scale3d(1.2, 1.2, 1.2)',
+                        color: '#04AA1C',
+                    },
+                    {
+                        transform: 'scale3d(1, 1, 1)',
+                        color: '#FFFFFF',
+                    },
+                ],
+                delay: function () {
+                    return '+=250ms';
+                },
+                to: 750,
+                fill: 'both',
+                easing: 'easeIn',
+            }).on('finish', function () {
+                setTimeout(next, 100);
+            });
+            setTimeout(function () {
+                $page.show();
+                preanimation && preanimation.cancel();
+            }, 10);
+        },
         function next($page, next) {
             $page.show();
+            sound.pause();
             // setTimeout(next, 300);
         },
     ];
@@ -582,9 +652,9 @@ function handleComplete() {
         };
     })();
 
-    runAnimate.next();
+    // runAnimate.next();
 
-    // runAnimate.next(23);
+    runAnimate.next(32);
 
 }
 
