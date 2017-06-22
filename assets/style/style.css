@@ -44,6 +44,7 @@
   font-weight: 600;
   font-family: 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
   font-size: 0.92754rem;
+  white-space: nowrap;
   -webkit-font-smoothing: antialiased;
   color: #FFFFFF; }
   .typo div[ja-character] {
@@ -76,137 +77,166 @@
       font-size: 0.61836rem; }
 
 .page2 .tit1 {
-  width: 4.01932rem;
-  height: 1.4686rem;
-  margin-left: -1.97101rem;
-  margin-top: -0.69565rem; }
+  width: 4.79227rem;
+  height: 1.35266rem;
+  margin-left: -2.35749rem;
+  margin-top: -0.657rem; }
 
 .page3 .tit1 {
-  width: 2.08696rem;
-  height: 1.4686rem;
-  margin-left: -1.00483rem;
-  margin-top: -0.69565rem; }
+  width: 7.84541rem;
+  height: 3.90338rem;
+  margin-left: -3.90338rem;
+  margin-top: -8.11594rem; }
+  .page3 .tit1 .typo {
+    font-size: 2.62802rem; }
+.page3 .tit2 {
+  width: 13.33333rem;
+  height: 2.28019rem;
+  margin-left: -6.64734rem;
+  margin-top: -3.40097rem; }
+  .page3 .tit2 .typo {
+    font-size: 1.4686rem; }
+.page3 .tit3 {
+  width: 16.07729rem;
+  height: 1.77778rem;
+  margin-left: -8rem;
+  margin-top: 0rem; }
+  .page3 .tit3 .typo {
+    font-size: 1.15942rem; }
 
 .page4 .tit1 {
-  width: 1.12077rem;
-  height: 1.4686rem;
-  margin-left: -0.54106rem;
-  margin-top: -0.69565rem; }
+  width: 3.86473rem;
+  height: 0.92754rem;
+  margin-left: -1.89372rem;
+  margin-top: -0.42512rem; }
 
 .page5 .tit1 {
-  width: 5.56522rem;
-  height: 1.4686rem;
-  margin-left: -2.74396rem;
-  margin-top: -0.69565rem; }
+  width: 5.71981rem;
+  height: 0.92754rem;
+  margin-left: -2.82126rem;
+  margin-top: -0.42512rem; }
 
 .page6 .tit1 {
-  width: 4.98551rem;
-  height: 1.4686rem;
-  margin-left: -2.47343rem;
-  margin-top: -0.69565rem; }
+  width: 4.83092rem;
+  height: 0.92754rem;
+  margin-left: -2.39614rem;
+  margin-top: -0.42512rem; }
 
 .page7 .tit1 {
-  width: 2.89855rem;
-  height: 1.4686rem;
-  margin-left: -1.42995rem;
-  margin-top: -0.69565rem; }
+  width: 1.97101rem;
+  height: 3.51691rem;
+  margin-left: -0.96618rem;
+  margin-top: -1.73913rem; }
+  .page7 .tit1 .typo {
+    font-size: 2.31884rem; }
 
-.page8 .tit1 {
-  width: 7.84541rem;
-  height: 1.4686rem;
-  margin-left: -3.90338rem;
-  margin-top: -0.69565rem; }
+.page8 {
+  background: #FFFFFF; }
+  .page8 .tit1 {
+    width: 1.97101rem;
+    height: 3.51691rem;
+    margin-left: -0.96618rem;
+    margin-top: -1.73913rem; }
+    .page8 .tit1 .typo {
+      color: #000000;
+      font-size: 2.31884rem; }
 
 .page9 .tit1 {
-  width: 4.98551rem;
-  height: 1.4686rem;
-  margin-left: -2.47343rem;
-  margin-top: -0.69565rem; }
+  width: 1.97101rem;
+  height: 3.51691rem;
+  margin-left: -0.96618rem;
+  margin-top: -1.73913rem; }
+  .page9 .tit1 .typo {
+    font-size: 2.31884rem; }
 
 .page10 .tit1 {
-  width: 2.08696rem;
-  height: 1.4686rem;
-  margin-left: -1.00483rem;
-  margin-top: -0.69565rem; }
+  width: 16.15459rem;
+  height: 6.02899rem;
+  margin-left: -8.07729rem;
+  margin-top: -2.97585rem; }
+.page10 .typo {
+  font-size: 1.93237rem; }
 
+.page11 .page-top {
+  width: 16.15459rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 50%;
+  background: #FFFFFF; }
+.page11 .page-bottom {
+  width: 16.15459rem;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  bottom: 0;
+  background: #000000; }
 .page11 .tit1 {
-  width: 7.84541rem;
-  height: 1.4686rem;
-  margin-left: -3.90338rem;
-  margin-top: -0.69565rem; }
+  width: 2.51208rem;
+  height: 0.96618rem;
+  margin-left: -1.23671rem;
+  margin-top: -0.46377rem; }
   .page11 .tit1 .typo {
+    color: #000000; }
+.page11 .tit2 {
+  width: 3.05314rem;
+  height: 0.96618rem;
+  margin-left: -1.50725rem;
+  margin-top: -0.46377rem; }
+  .page11 .tit2 .typo {
+    color: #FFFFFF; }
+
+.page12 .page-top {
+  width: 16.15459rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 50%;
+  background: #000000; }
+.page12 .page-bottom {
+  width: 16.15459rem;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  bottom: 0;
+  background: #FFFFFF; }
+.page12 .tit1 {
+  width: 2.51208rem;
+  height: 0.96618rem;
+  margin-left: -1.23671rem;
+  margin-top: -0.46377rem; }
+  .page12 .tit1 .typo {
+    color: #FFFFFF; }
+.page12 .tit2 {
+  width: 3.05314rem;
+  height: 0.96618rem;
+  margin-left: -1.50725rem;
+  margin-top: -0.46377rem; }
+  .page12 .tit2 .typo {
     color: #000000; }
 
 .page13 .tit1 {
-  width: 4.98551rem;
-  height: 1.4686rem;
-  margin-left: -2.47343rem;
-  margin-top: -0.69565rem; }
+  width: 3.6715rem;
+  height: 15.38164rem;
+  margin-left: -1.81643rem;
+  margin-top: -7.65217rem; }
+  .page13 .tit1 .typo {
+    line-height: 120%;
+    white-space: normal;
+    font-size: 3.09179rem; }
 
 .page14 .tit1 {
-  width: 0.85024rem;
-  height: 1.4686rem;
-  margin-left: -0.38647rem;
-  margin-top: -0.69565rem; }
-
-.page15 .tit1 {
-  width: 0.85024rem;
-  height: 1.4686rem;
-  margin-left: -0.38647rem;
-  margin-top: -0.69565rem; }
-
-.page16 .tit1 {
-  width: 0.85024rem;
-  height: 1.4686rem;
-  margin-left: -0.38647rem;
-  margin-top: -0.69565rem; }
-
-.page17 .video1 {
-  width: 16rem;
-  height: 100%; }
-
-.page18 .img1 {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0; }
-.page18 .bgimg {
-  height: 100%;
-  width: 100%;
-  background-image: url(../images/dlytr.png);
-  background-repeat: no-repeat;
-  background-size: cover; }
-
-.page19 .img1 {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0; }
-.page19 .bgimg {
-  height: 100%;
-  width: 100%;
-  background-image: url(../images/dlytr2.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  transform: translate3d(0, 0, 0); }
-
-.page20 .img1 {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0; }
-.page20 .bgimg {
-  height: 100%;
-  width: 100%;
-  background-image: url(../images/dlytr3.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  transform: translate3d(0, 0, 0); }
-
-.page21 .tit1 {
-  width: 5.48792rem;
-  height: 1.42995rem;
-  margin-left: -2.70531rem;
-  margin-top: -0.69565rem; }
+  width: 2.16425rem;
+  height: 17.62319rem;
+  margin-left: -1.04348rem;
+  margin-top: -8.77295rem; }
+  .page14 .tit1 .typo {
+    line-height: 130%;
+    white-space: normal;
+    font-size: 1.93237rem; }
+    .page14 .tit1 .typo div[ja-character] {
+      line-height: 130%;
+      white-space: normal;
+      font-size: 1.93237rem; }
 
 /*# sourceMappingURL=style.css.map */

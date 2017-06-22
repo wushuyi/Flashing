@@ -19,6 +19,18 @@ function getStyle(el) {
 
 getStyle($0);
 
+function setStyle(el) {
+    var $el = $(el);
+    $el.css({
+        width: $el.css('width'),
+        height: $el.css('height'),
+        'margin-left': $el.css('margin-left'),
+        'margin-top': $el.css('margin-top'),
+    });
+}
+
+setStyle($0);
+
 (function() {
     'use strict';
     var $select = document.getElementById('animateSelect');

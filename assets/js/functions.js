@@ -29,6 +29,9 @@
     }, supportsPassiveOption ? {passive: false, capture: false} : false);
 })();
 
+//消除点击延迟
+var swiftclick = SwiftClick.attach(document.body);
+
 var queue = new createjs.LoadQueue();
 queue.on("complete", handleComplete, this);
 queue.loadManifest([
@@ -71,7 +74,6 @@ function handleComplete() {
 //     }
 // });
 
-    var swiftclick = SwiftClick.attach(document.body);
     var animation = null;
     var pageList = [
         function page1($page, next) {
@@ -82,401 +84,169 @@ function handleComplete() {
             });
         },
         function page2($page, next) {
-            var $tit1 = $page.find('.tit1');
-            console.log($tit1);
-            // var letters = just.splitText($tit1.find('.typo').get(0)).characters;
-            if (animation) {
-                animation.cancel();
-            }
-            animation = just.animate({
-                css: [
-                    {
-                        opacity: 0,
-                        color: '#BABABA',
-                        transform: 'scale3d(4, 4, 4)'
-                    },
-                    {
-                        opacity: 1
-                    },
-                    {
-                        opacity: 1,
-                        color: '#FFFFFF',
-                        transform: 'none'
-                    }
-                ],
-                targets: $tit1.find('.typo').get(0),
-                to: 800,
-                mixins: 'zoomIn',
-                fill: 'both',
-                easing: 'easeInBack',
-            }).on('finish', function () {
-
-                setTimeout(next, 300);
-            });
+            $page.show();
+            setTimeout(next, 600);
         },
         function page3($page, next) {
+            $page.show();
             setTimeout(next, 300);
         },
         function page4($page, next) {
+            $page.show();
             setTimeout(next, 300);
         },
         function page5($page, next) {
-            var $tit1 = $page.find('.tit1');
-            console.log($tit1);
-            var letters = just.splitText($tit1.find('.typo').get(0)).characters;
-            if (animation) {
-                animation.cancel();
-            }
-            animation = just.animate({
-                targets: letters,
-                delay: '+=100ms',
-                to: 800,
-                mixins: 'flipInY',
-                fill: 'both',
-                easing: 'easeInBack',
-            }).on('finish', function () {
-
-                setTimeout(next, 300);
-            });
+            $page.show();
+            setTimeout(next, 300);
         },
         function page6($page, next) {
-            var $tit1 = $page.find('.tit1');
-            if (animation) {
-                animation.cancel();
-            }
-            animation = just.animate({
-                targets: $tit1.get(0),
-                to: 600,
-                mixins: 'lightSpeedIn',
-                fill: 'both',
-                easing: 'easeInBack',
-            }).on('finish', function () {
-                setTimeout(next, 300);
-            });
+            $page.show();
+            setTimeout(next, 300);
         },
         function page7($page, next) {
             var $tit1 = $page.find('.tit1');
-            var letters = just.splitText($tit1.find('.typo').get(0)).characters;
-            if (animation) {
-                animation.cancel();
-            }
+            var preanimation = animation;
             animation = just.animate({
-                targets: letters,
-                delay: '+=100ms',
-                to: 800,
-                mixins: 'flip',
-                fill: 'none',
-                easing: 'easeInBack',
-            }).on('finish', function () {
+                targets: $tit1.get(0),
+                css: [
+                    {
 
-                setTimeout(next, 300);
+                        transform: 'translateZ(0) scale3d(8, 8, 8)'
+                    },
+                    {
+                        // opacity: 1,
+                        // color: '#FFFFFF',
+                        transform: 'translateZ(0) scale3d(2, 2, 2)'
+                    }
+                ],
+                to: 300,
+                fill: 'both',
+                easing: 'easeOutCubic',
+            }).on('finish', function () {
+                setTimeout(next, 100);
             });
+            setTimeout(function () {
+                $page.show();
+                preanimation && preanimation.cancel();
+            }, 10);
         },
         function page8($page, next) {
             var $tit1 = $page.find('.tit1');
-            if (animation) {
-                animation.cancel();
-            }
+            var preanimation = animation;
             animation = just.animate({
+                targets: $tit1.get(0),
                 css: [
                     {
-                        opacity: 0,
-                        color: '#BABABA',
-                        transform: 'scale3d(2.5, 2.5, 2.5)'
+
+                        transform: 'translateZ(0) scale3d(8, 8, 8)'
                     },
                     {
-                        opacity: 1
-                    },
-                    {
-                        opacity: 1,
-                        color: '#FFFFFF',
-                        transform: 'none'
+                        // opacity: 1,
+                        // color: '#FFFFFF',
+                        transform: 'translateZ(0) scale3d(2, 2, 2)'
                     }
                 ],
-                targets: $tit1.get(0),
-                to: 800,
-                mixins: 'zoomIn',
+                to: 300,
                 fill: 'both',
-                easing: 'easeInBack',
+                easing: 'easeOutCubic',
             }).on('finish', function () {
-
-                setTimeout(next, 600);
+                setTimeout(next, 100);
             });
+            setTimeout(function () {
+                $page.show();
+                preanimation && preanimation.cancel();
+            }, 10);
         },
         function page9($page, next) {
             var $tit1 = $page.find('.tit1');
-            if (animation) {
-                animation.cancel();
-            }
+            var preanimation = animation;
             animation = just.animate({
+                targets: $tit1.get(0),
                 css: [
                     {
-                        opacity: 0,
-                        color: '#BABABA',
-                        transform: 'scale3d(2.5, 2.5, 2.5)'
+
+                        transform: 'translateZ(0) scale3d(8, 8, 8)'
                     },
                     {
-                        opacity: 1
-                    },
-                    {
-                        opacity: 1,
-                        color: '#FFFFFF',
-                        transform: 'none'
+                        // opacity: 1,
+                        // color: '#FFFFFF',
+                        transform: 'translateZ(0) scale3d(2, 2, 2)'
                     }
                 ],
-                targets: $tit1.get(0),
-                to: 800,
-                mixins: 'zoomIn',
+                to: 300,
                 fill: 'both',
-                easing: 'easeInBack',
+                easing: 'easeOutCubic',
             }).on('finish', function () {
-
-                setTimeout(next, 600);
+                setTimeout(next, 100);
             });
+            setTimeout(function () {
+                $page.show();
+                preanimation && preanimation.cancel();
+            }, 10);
         },
         function page10($page, next) {
             var $tit1 = $page.find('.tit1');
-            $tit1.css({
-                visibility: 'hidden'
-            });
-            var letters = just.splitText($tit1.find('.typo').get(0)).characters;
-            if (animation) {
-                animation.cancel();
-            }
+            var preanimation = animation;
             animation = just.animate({
-                targets: letters,
-                delay: '+=150ms',
-                to: 800,
-                mixins: 'slideInDown',
-                fill: 'none',
-                // easing: 'easeIn',
-            }).on('finish', function () {
+                targets: $tit1.get(0),
+                css: [
+                    {
 
-                setTimeout(next, 400);
+                        transform: 'translateZ(0) scale3d(2, 2, 2)'
+                    },
+                    {
+                        // opacity: 1,
+                        // color: '#FFFFFF',
+                        transform: 'translateZ(0) scale3d(0.5, 0.5, 0.5)'
+                    }
+                ],
+                to: 600,
+                fill: 'both',
+                easing: 'easeOutCubic',
+            }).on('finish', function () {
+                setTimeout(next, 300);
             });
+            setTimeout(function () {
+                $page.show();
+                preanimation && preanimation.cancel();
+            }, 10);
         },
         function page11($page, next) {
-
-            var $tit1 = $page.find('.tit1');
-            $page.css({
-                backgroundColor: '#FFFFFF',
-            });
-            setTimeout(next, 1000);
+            $page.show();
+            setTimeout(next, 600);
         },
-        // function page12($page, next) {
-        //     setTimeout(next, 600);
-        // },
+        function page12($page, next) {
+            $page.show();
+            setTimeout(next, 600);
+        },
         function page13($page, next) {
-            var $tit1 = $page.find('.tit1');
-            if (animation) {
-                animation.cancel();
-            }
-            animation = just.animate({
-                css: [
-                    {
-                        opacity: 1,
-                        color: '#FFFFFF',
-                        transform: 'translateZ(0) scale3d(1, 1, 1)'
-                    },
-                    {
-                        opacity: 1,
-                    },
-                    {
-                        opacity: 0.5,
-                        color: '#BABABA',
-                        transform: 'translateZ(0) scale3d(4, 4, 4)'
-
-                    }
-                ],
-                targets: $tit1.get(0),
-                delay: 200,
-                to: 600,
-                mixins: 'zoomIn',
-                fill: 'both',
-                easing: 'easeInBack',
-            }).on('finish', function () {
-                setTimeout(next, 0);
-            });
+            $page.show();
+            setTimeout(next, 600);
         },
         function page14($page, next) {
-
             var $tit1 = $page.find('.tit1');
-            if (animation) {
-                animation.cancel();
-            }
+            var preanimation = animation;
+            var letters = just.splitText($tit1.find('.typo').get(0)).characters;
             animation = just.animate({
-                css: [
-                    {
-                        opacity: 0,
-                        transform: 'translateZ(0) scale3d(16, 16, 16)'
-                    },
-                    {
-                        opacity: 1
-                    },
-                    {
-                        opacity: 1,
-                        transform: 'translateZ(0) scale3d(4, 4, 4)'
-                    }
-                ],
-                targets: $tit1.get(0),
-                to: 500,
-                mixins: 'zoomIn',
+                targets: letters,
+                delay: function () {
+                    return '+=100ms';
+                },
+                to: 700,
+                mixins: 'flipInX',
                 fill: 'both',
-                easing: 'easeInBack',
-            }).on('finish', function () {
-                setTimeout(next, 100);
-            });
-        },
-        function page15($page, next) {
-            var $tit1 = $page.find('.tit1');
-            if (animation) {
-                animation.cancel();
-            }
-            animation = just.animate({
-                css: [
-                    {
-                        opacity: 0,
-                        transform: 'translateZ(0) scale3d(16, 16, 16)'
-                    },
-                    {
-                        opacity: 1
-                    },
-                    {
-                        opacity: 1,
-                        transform: 'translateZ(0) scale3d(4, 4, 4)'
-                    }
-                ],
-                targets: $tit1.get(0),
-                to: 500,
-                mixins: 'zoomIn',
-                fill: 'both',
-                easing: 'easeInBack',
-            }).on('finish', function () {
-                setTimeout(next, 100);
-            });
-        },
-        function page16($page, next) {
-            var $tit1 = $page.find('.tit1');
-            if (animation) {
-                animation.cancel();
-            }
-            animation = just.animate({
-                css: [
-                    {
-                        opacity: 0,
-                        transform: 'translateZ(0) scale3d(16, 16, 16)'
-                    },
-                    {
-                        opacity: 1
-                    },
-                    {
-                        opacity: 1,
-                        transform: 'translateZ(0) scale3d(4, 4, 4)'
-                    }
-                ],
-                targets: $tit1.get(0),
-                to: 500,
-                mixins: 'zoomIn',
-                fill: 'both',
-                easing: 'easeInBack',
-            }).on('finish', function () {
-                setTimeout(next, 100);
-            });
-        },
-        function page17($page, next) {
-            var video1 = $page.find('.video1');
-            var player = new JSMpeg.Player('./assets/video/out.ts', {
-                canvas: video1.get(0),
-                autoplay: true,
-                loop: false,
-            });
-            var checkEnd = function () {
-                if (player.currentTime > 2.74) {
-                    setTimeout(next, 0);
-                    player.destroy();
-                } else {
-                    requestAnimationFrame(checkEnd);
-                }
-            };
-            requestAnimationFrame(checkEnd);
-        },
-        function page18($page, next) {
-            var $tit1 = $page.find('.img1');
-            if (animation) {
-                animation.cancel();
-            }
-            animation = just.animate({
-                css: [
-                    {
-                        backgroundPositionX: '0%',
-                    },
-                    {
-                        backgroundPositionX: '50%',
-                    },
-                    {
-                        backgroundPositionX: '100%',
-                    }
-                ],
-                targets: $tit1.find('.bgimg').get(0),
-                to: 2000,
-                fill: 'none',
                 easing: 'easeOutCubic',
             }).on('finish', function () {
-                setTimeout(next, 0);
+                // setTimeout(next, 300);
             });
+            setTimeout(function () {
+                $page.show();
+                preanimation && preanimation.cancel();
+            }, 10);
         },
-        function page19($page, next) {
-            var $tit1 = $page.find('.img1');
-            if (animation) {
-                animation.cancel();
-            }
-            animation = just.animate({
-                css: [
-                    {
-                        backgroundPositionX: '100%',
-                    },
-                    {
-                        backgroundPositionX: '50%',
-                    },
-                    {
-                        backgroundPositionX: '0%',
-                    }
-                ],
-                targets: $tit1.find('.bgimg').get(0),
-                to: 2000,
-                fill: 'none',
-                easing: 'easeOutCubic',
-            }).on('finish', function () {
-                setTimeout(next, 0);
-            });
-        },
-        function page20($page, next) {
-            var $tit1 = $page.find('.img1');
-            if (animation) {
-                animation.cancel();
-            }
-            animation = just.animate({
-                css: [
-                    {
-                        backgroundPositionX: '0%',
-                    },
-                    {
-                        backgroundPositionX: '50%',
-                    },
-                    {
-                        backgroundPositionX: '100%',
-                    }
-                ],
-                targets: $tit1.find('.bgimg').get(0),
-                to: 2000,
-                fill: 'none',
-                easing: 'easeOutCubic',
-            }).on('finish', function () {
-                setTimeout(next, 0);
-            });
-        },
-        function page21($page, next) {
-            rythm.stop();
+        function next($page, next) {
+            $page.show();
+            // setTimeout(next, 300);
         },
     ];
 
@@ -487,12 +257,14 @@ function handleComplete() {
         var arr = [];
         var slice = arr.slice;
 
-        function next() {
+        function next(num) {
+            if (num) {
+                index = num;
+            }
             if (index < len) {
                 var args = $.fn.toArray(arguments).slice(1);
                 // alert(JSON.stringify(args));
                 pages.eq(index - 1).hide();
-                pages.eq(index).show();
                 pageList[index] && pageList[index].apply(null, [pages.eq(index), next]);
                 index += 1;
             }
@@ -503,12 +275,11 @@ function handleComplete() {
         };
     })();
 
-    runAnimate.next();
+    // runAnimate.next();
+
+    runAnimate.next(1);
+
+
 }
 
-
-// function test(index) {
-//     pageList[index]($('.page').eq(index));
-// }
-// test(17);
 
