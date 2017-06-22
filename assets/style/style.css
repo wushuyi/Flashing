@@ -97,21 +97,21 @@
   width: 7.84541rem;
   height: 3.90338rem;
   margin-left: -3.90338rem;
-  margin-top: -8.11594rem; }
+  margin-top: -6.57005rem; }
   .page3 .tit1 .typo {
     font-size: 2.62802rem; }
 .page3 .tit2 {
   width: 13.33333rem;
   height: 2.28019rem;
   margin-left: -6.64734rem;
-  margin-top: -3.40097rem; }
+  margin-top: -2.62802rem; }
   .page3 .tit2 .typo {
     font-size: 1.4686rem; }
 .page3 .tit3 {
   width: 16.07729rem;
   height: 1.77778rem;
   margin-left: -8rem;
-  margin-top: 0rem; }
+  margin-top: 0.38647rem; }
   .page3 .tit3 .typo {
     font-size: 1.15942rem; }
 
@@ -348,12 +348,14 @@
     position: relative;
     color: #000000; }
 
-.page23 .tit1 {
-  width: 3.05314rem;
-  height: 0.96618rem;
-  margin-left: -1.50725rem;
-  margin-top: -0.46377rem; }
-
+/*.page23 {
+  .tit1 {
+    width: px2rem(79);
+    height: px2rem(25);
+    margin-left: px2rem(-39);
+    margin-top: px2rem(-12);
+  }
+//}*/
 .page24 .tit1 {
   width: 4.01932rem;
   height: 0.96618rem;

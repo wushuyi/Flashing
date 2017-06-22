@@ -106,7 +106,7 @@ function handleComplete() {
     var pageList = [
         function page1($page, next) {
             $page.find('.button1').one('click', function () {
-                next();
+                setTimeout(next, 0);
                 sound.play();
                 // rythm.setGain(1);
                 // rythm.start();
@@ -287,48 +287,50 @@ function handleComplete() {
             $tit3.hide();
             $tit4.hide();
             var preanimation = animation;
-            var allCss = [
-                {
-                    transform: 'translate3d(' + (-$(window).height() / 2) + 'px, 0, 0)',
-                    visibility: 'hidden'
-                },
-                {
-                    transform: 'translate3d(0, 0, 0)',
-                    visibility: 'visible'
-                }
-            ];
+            // var allCss = [
+            //     {
+            //         transform: 'translate3d(' + ((-$(window).height() / 2) + 180 * hotcss.dpr) + 'px, 0, 0)',
+            //         visibility: 'hidden'
+            //     },
+            //     {
+            //         transform: 'translate3d(0, 0, 0)',
+            //         visibility: 'visible'
+            //     }
+            // ];
 
-            var createAnimate = function ($el, css, cb) {
+            var createAnimate = function ($el, mixins, cb) {
                 animation = just.animate({
                     targets: $el.get(0),
-                    css: css,
-                    mixins: 'slideInLeft',
+                    mixins: mixins,
                     delay: function () {
                         setTimeout(function () {
                             $el.show();
-                        }, 10);
+                        }, 20);
                         return 0;
                     },
-                    to: 200,
+                    to: 400,
                     fill: 'both',
                     easing: 'easeIn',
                 }).animate({
                     targets: $el.get(0),
                     mixins: 'fadeOut',
-                    delay: 200,
+                    delay: 300,
                     to: 100,
                     fill: 'both',
                     easing: 'easeOut',
                 }).on('finish', function (ctx) {
-                    cb();
+                    setTimeout(function () {
+                        cb && cb();
+                    }, 20);
+
                 });
             };
 
-            createAnimate($tit1, allCss, function () {
-                createAnimate($tit2, allCss, function () {
-                    createAnimate($tit3, allCss, function () {
-                        createAnimate($tit4, allCss, function () {
-                            setTimeout(next, 0);
+            createAnimate($tit1, 'bounceInDown', function () {
+                createAnimate($tit2, 'fadeInUp', function () {
+                    createAnimate($tit3, 'fadeInRight', function () {
+                        createAnimate($tit4, 'flipInY', function () {
+                            setTimeout(next, 10);
                         });
                     });
                 });
@@ -365,19 +367,19 @@ function handleComplete() {
         },
         function page18($page, next) {
             $page.show();
-            setTimeout(next, 200);
+            setTimeout(next, 400);
         },
         function page19($page, next) {
             $page.show();
-            setTimeout(next, 400);
+            setTimeout(next, 1000);
         },
         function page20($page, next) {
             $page.show();
-            setTimeout(next, 200);
+            setTimeout(next, 400);
         },
         function page21($page, next) {
             $page.show();
-            setTimeout(next, 400);
+            setTimeout(next, 1000);
         },
         function page22($page, next) {
             var $img1 = $page.find('.img1');
@@ -426,9 +428,133 @@ function handleComplete() {
                 preanimation && preanimation.cancel();
             }, 10);
         },
-        function page23($page, next) {
+        /*        function page23($page, next) {
+         $page.show();
+         setTimeout(next, 1000);
+         },*/
+        function page29($page, next) {
             $page.show();
-            setTimeout(next, 1000);
+            setTimeout(next, 400);
+        },
+        function page30($page, next) {
+            $page.show();
+            setTimeout(next, 400);
+        },
+        function page31($page, next) {
+            var $tit1 = $page.find('.tit1');
+            var preanimation = animation;
+            var letters = just.splitText($tit1.find('.typo').get(0)).characters;
+            animation = just.animate({
+                targets: letters,
+                delay: function () {
+                    return '+=80ms';
+                },
+                mixins: 'zoomInDown',
+                fill: 'both',
+                easing: 'easeOutCubic',
+            }).on('finish', function () {
+                setTimeout(next, 100);
+            });
+            setTimeout(function () {
+                $page.show();
+                preanimation && preanimation.cancel();
+            }, 10);
+        },
+        function page32($page, next) {
+            var $tit1 = $page.find('.tit1');
+            var preanimation = animation;
+            var letters = just.splitText($tit1.find('.typo').get(0)).characters;
+            animation = just.animate({
+                targets: letters,
+                css: [
+                    {
+                        transform: 'scale3d(1, 1, 1)',
+                        color: '#FFFFFF',
+                    },
+                    {
+                        transform: 'scale3d(0.8, 0.8, 0.8)',
+                        color: '#FD0201',
+                    },
+                    {
+                        transform: 'scale3d(1.2, 1.2, 1.2)',
+                        color: '#6F08BB',
+                    },
+                    {
+                        transform: 'scale3d(0.8, 0.8, 0.8)',
+                        color: '#EDC703',
+                    },
+                    {
+                        transform: 'scale3d(1.2, 1.2, 1.2)',
+                        color: '#01A517',
+                    },
+                    {
+                        transform: 'scale3d(0.8, 0.8, 0.8)',
+                        color: '#052CC7',
+                    },
+                    {
+                        transform: 'scale3d(1.2, 1.2, 1.2)',
+                        color: '#04AA1C',
+                    },
+                    {
+                        transform: 'scale3d(1, 1, 1)',
+                        color: '#FFFFFF',
+                    },
+                ],
+                delay: function () {
+                    return '+=250ms';
+                },
+                to: 750,
+                fill: 'both',
+                easing: 'easeIn',
+            }).on('finish', function () {
+                setTimeout(next, 100);
+            });
+            setTimeout(function () {
+                $page.show();
+                preanimation && preanimation.cancel();
+            }, 10);
+        },
+        function page37_1($page, next) {
+            var $img1 = $page.find('.img1');
+            var preanimation = animation;
+            var createAnimate = function ($el, cb, notOut) {
+                animation = just.animate({
+                    targets: $el.get(0),
+                    css: [
+                        {
+                            transform: 'translateZ(0) scale3d(1, 1, 1)'
+                        },
+                        {
+                            transform: 'translateZ(0) scale3d(1.1, 1.1, 1.1)'
+                        },
+                    ],
+                    fill: 'both',
+                    easing: 'linear',
+                    to: 800,
+                });
+                if (!notOut) {
+                    animation.animate({
+                        targets: $el.get(0),
+                        mixins: 'fadeOut',
+                        fill: 'both',
+                        easing: 'linear',
+                        delay: 1000,
+                        to: 300,
+                    }).on('finish', function () {
+                        cb();
+                    });
+                } else {
+                    setTimeout(cb, 1000);
+                }
+            };
+            createAnimate($img1, function () {
+                setTimeout(next, 100);
+            }, true);
+
+            setTimeout(function () {
+                $page.show();
+                preanimation && preanimation.cancel();
+            }, 10);
         },
         function page24($page, next) {
             $page.show();
@@ -437,6 +563,7 @@ function handleComplete() {
             var playerList = [
                 function start(canvas, next) {
                     // sound.pause();
+                    $(canvas).hide();
                     setTimeout(next, 0);
                 },
                 function video1(canvas, next) {
@@ -448,6 +575,9 @@ function handleComplete() {
                     player.onpause = function () {
                         next();
                     };
+                    setTimeout(function () {
+                        $(canvas).show();
+                    }, 800);
                 },
                 function end(canvas, next) {
                     player.destroy();
@@ -480,6 +610,48 @@ function handleComplete() {
             })($page);
             players.next();
             // setTimeout(next, 300);
+        },
+        function page37_2($page, next) {
+            var $img1 = $page.find('.img1');
+            var preanimation = animation;
+            var createAnimate = function ($el, cb, notOut) {
+                animation = just.animate({
+                    targets: $el.get(0),
+                    css: [
+                        {
+                            transform: 'translateZ(0) scale3d(1, 1, 1)'
+                        },
+                        {
+                            transform: 'translateZ(0) scale3d(1.1, 1.1, 1.1)'
+                        },
+                    ],
+                    fill: 'both',
+                    easing: 'linear',
+                    to: 800,
+                });
+                if (!notOut) {
+                    animation.animate({
+                        targets: $el.get(0),
+                        mixins: 'fadeOut',
+                        fill: 'both',
+                        easing: 'linear',
+                        delay: 1000,
+                        to: 300,
+                    }).on('finish', function () {
+                        cb();
+                    });
+                } else {
+                    setTimeout(cb, 1000);
+                }
+            };
+            createAnimate($img1, function () {
+                setTimeout(next, 100);
+            }, true);
+
+            setTimeout(function () {
+                $page.show();
+                preanimation && preanimation.cancel();
+            }, 10);
         },
         function page25($page, next) {
             // var $img1 = $page.find('.img1');
@@ -613,88 +785,6 @@ function handleComplete() {
                 preanimation && preanimation.cancel();
             }, 10);
 
-        },
-        function page29($page, next) {
-            $page.show();
-            setTimeout(next, 400);
-        },
-        function page30($page, next) {
-            $page.show();
-            setTimeout(next, 400);
-        },
-        function page31($page, next) {
-            var $tit1 = $page.find('.tit1');
-            var preanimation = animation;
-            var letters = just.splitText($tit1.find('.typo').get(0)).characters;
-            animation = just.animate({
-                targets: letters,
-                delay: function () {
-                    return '+=80ms';
-                },
-                mixins: 'zoomInDown',
-                fill: 'both',
-                easing: 'easeOutCubic',
-            }).on('finish', function () {
-                setTimeout(next, 100);
-            });
-            setTimeout(function () {
-                $page.show();
-                preanimation && preanimation.cancel();
-            }, 10);
-        },
-        function page32($page, next) {
-            var $tit1 = $page.find('.tit1');
-            var preanimation = animation;
-            var letters = just.splitText($tit1.find('.typo').get(0)).characters;
-            animation = just.animate({
-                targets: letters,
-                css: [
-                    {
-                        transform: 'scale3d(1, 1, 1)',
-                        color: '#FFFFFF',
-                    },
-                    {
-                        transform: 'scale3d(0.8, 0.8, 0.8)',
-                        color: '#FD0201',
-                    },
-                    {
-                        transform: 'scale3d(1.2, 1.2, 1.2)',
-                        color: '#6F08BB',
-                    },
-                    {
-                        transform: 'scale3d(0.8, 0.8, 0.8)',
-                        color: '#EDC703',
-                    },
-                    {
-                        transform: 'scale3d(1.2, 1.2, 1.2)',
-                        color: '#01A517',
-                    },
-                    {
-                        transform: 'scale3d(0.8, 0.8, 0.8)',
-                        color: '#052CC7',
-                    },
-                    {
-                        transform: 'scale3d(1.2, 1.2, 1.2)',
-                        color: '#04AA1C',
-                    },
-                    {
-                        transform: 'scale3d(1, 1, 1)',
-                        color: '#FFFFFF',
-                    },
-                ],
-                delay: function () {
-                    return '+=250ms';
-                },
-                to: 750,
-                fill: 'both',
-                easing: 'easeIn',
-            }).on('finish', function () {
-                setTimeout(next, 100);
-            });
-            setTimeout(function () {
-                $page.show();
-                preanimation && preanimation.cancel();
-            }, 10);
         },
         // function page33($page, next) {
         //     var $imgContent = $page.find('.img-content');
@@ -832,90 +922,6 @@ function handleComplete() {
                 preanimation && preanimation.cancel();
             }, 10);
         },
-        function page37_1($page, next) {
-            var $img1 = $page.find('.img1');
-            var preanimation = animation;
-            var createAnimate = function ($el, cb, notOut) {
-                animation = just.animate({
-                    targets: $el.get(0),
-                    css: [
-                        {
-                            transform: 'translateZ(0) scale3d(1, 1, 1)'
-                        },
-                        {
-                            transform: 'translateZ(0) scale3d(1.1, 1.1, 1.1)'
-                        },
-                    ],
-                    fill: 'both',
-                    easing: 'linear',
-                    to: 800,
-                });
-                if (!notOut) {
-                    animation.animate({
-                        targets: $el.get(0),
-                        mixins: 'fadeOut',
-                        fill: 'both',
-                        easing: 'linear',
-                        delay: 1000,
-                        to: 300,
-                    }).on('finish', function () {
-                        cb();
-                    });
-                } else {
-                    setTimeout(cb, 1000);
-                }
-            };
-            createAnimate($img1, function () {
-                setTimeout(next, 100);
-            }, true);
-
-            setTimeout(function () {
-                $page.show();
-                preanimation && preanimation.cancel();
-            }, 10);
-        },
-        function page37_2($page, next) {
-            var $img1 = $page.find('.img1');
-            var preanimation = animation;
-            var createAnimate = function ($el, cb, notOut) {
-                animation = just.animate({
-                    targets: $el.get(0),
-                    css: [
-                        {
-                            transform: 'translateZ(0) scale3d(1, 1, 1)'
-                        },
-                        {
-                            transform: 'translateZ(0) scale3d(1.1, 1.1, 1.1)'
-                        },
-                    ],
-                    fill: 'both',
-                    easing: 'linear',
-                    to: 800,
-                });
-                if (!notOut) {
-                    animation.animate({
-                        targets: $el.get(0),
-                        mixins: 'fadeOut',
-                        fill: 'both',
-                        easing: 'linear',
-                        delay: 1000,
-                        to: 300,
-                    }).on('finish', function () {
-                        cb();
-                    });
-                } else {
-                    setTimeout(cb, 1000);
-                }
-            };
-            createAnimate($img1, function () {
-                setTimeout(next, 100);
-            }, true);
-
-            setTimeout(function () {
-                $page.show();
-                preanimation && preanimation.cancel();
-            }, 10);
-        },
         function page38($page, next) {
             var $img1 = $page.find('.img1');
             var $img2 = $page.find('.img2');
@@ -930,7 +936,7 @@ function handleComplete() {
                             transform: 'translateZ(0) scale3d(1, 1, 1)'
                         },
                         {
-                            transform: 'translateZ(0) scale3d(1.1, 1.1, 1.1)'
+                            transform: 'translateZ(0) scale3d(1.25, 1.25, 1.25)'
                         },
                     ],
                     fill: 'both',
@@ -955,7 +961,7 @@ function handleComplete() {
             createAnimate($img2, function () {
                 $img1.show();
                 sound.fade(1, 0, 3000);
-                setTimeout(sound.pause, 4000);
+                // setTimeout(sound.pause, 4000);
             });
             $img2.show();
 
@@ -983,11 +989,11 @@ function handleComplete() {
                 index = num;
             }
             if (index < len) {
+                // console.log(index);
                 var args = $.fn.toArray(arguments).slice(1);
                 // alert(JSON.stringify(args));
                 pages.eq(index - 1).hide();
-                pageList[index] && pageList[index].apply(null, [pages.eq(index), function () {
-                }]);
+                pageList[index] && pageList[index].apply(null, [pages.eq(index), next]);
                 index += 1;
             }
         }
@@ -997,7 +1003,6 @@ function handleComplete() {
         };
     })();
     // sound.play();
-    runAnimate.next(24);
+    runAnimate.next();
     // runAnimate.next(37);
-
 }
