@@ -45,12 +45,19 @@
 //消除点击延迟
 var swiftclick = SwiftClick.attach(document.body);
 
-var queue = new createjs.LoadQueue();
-queue.on("complete", handleComplete, this);
-var preloadfiles = [
-    './assets/audio/flashing_audio.mp3',
-    './assets/video/video.mp4',
+var queue = new createjs.LoadQueue(false);
+queue.on("complete", function () {
+    var queue2 = new createjs.LoadQueue();
+    queue2.on("complete", function () {
+        handleComplete();
+    }, this);
+    queue2.loadManifest([
+        './assets/audio/flashing_audio.mp3',
+        './assets/video/video.mp4',
+    ]);
+}, this);
 
+var preloadfiles = [
     './assets/images/master/hartmut_esslinger.png',
     './assets/images/master/robin_king.png',
     './assets/images/graduation.png',
@@ -253,25 +260,25 @@ function handleComplete() {
             setTimeout(next, 600);
         },
         /*function page14($page, next) {
-            var $tit1 = $page.find('.tit1');
-            var preanimation = animation;
-            var letters = just.splitText($tit1.find('.typo').get(0)).characters;
-            animation = just.animate({
-                targets: letters,
-                delay: function () {
-                    return '+=100ms';
-                },
-                mixins: 'flipInX',
-                fill: 'both',
-                easing: 'easeOutCubic',
-            }).on('finish', function () {
-                setTimeout(next, 10);
-            });
-            setTimeout(function () {
-                $page.show();
-                preanimation && preanimation.cancel();
-            }, 10);
-        },*/
+         var $tit1 = $page.find('.tit1');
+         var preanimation = animation;
+         var letters = just.splitText($tit1.find('.typo').get(0)).characters;
+         animation = just.animate({
+         targets: letters,
+         delay: function () {
+         return '+=100ms';
+         },
+         mixins: 'flipInX',
+         fill: 'both',
+         easing: 'easeOutCubic',
+         }).on('finish', function () {
+         setTimeout(next, 10);
+         });
+         setTimeout(function () {
+         $page.show();
+         preanimation && preanimation.cancel();
+         }, 10);
+         },*/
         function page15($page, next) {
             $page.show();
             setTimeout(next, 400);
