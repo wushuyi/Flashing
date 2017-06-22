@@ -54,6 +54,11 @@
     -webkit-font-smoothing: antialiased;
     color: #FFFFFF; }
 
+.img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%; }
+
 .center {
   position: absolute;
   top: 50%;
@@ -238,5 +243,109 @@
       line-height: 130%;
       white-space: normal;
       font-size: 1.93237rem; }
+
+.page15 .tit1 {
+  width: 3.05314rem;
+  height: 0.96618rem;
+  margin-left: -1.50725rem;
+  margin-top: -0.46377rem; }
+
+.page16 .tit1 {
+  width: 6.87923rem;
+  height: 0.96618rem;
+  margin-left: -3.40097rem;
+  margin-top: -0.46377rem; }
+.page16 .tit2 {
+  width: 4.98551rem;
+  height: 0.96618rem;
+  margin-left: -2.47343rem;
+  margin-top: -0.46377rem; }
+.page16 .tit3 {
+  width: 2.08696rem;
+  height: 0.96618rem;
+  margin-left: -1.00483rem;
+  margin-top: -0.46377rem; }
+.page16 .tit4 {
+  width: 3.05314rem;
+  height: 0.96618rem;
+  margin-left: -1.50725rem;
+  margin-top: -0.46377rem; }
+
+.page17 .img1 {
+  width: 16rem;
+  height: 100vh;
+  background-image: url(../images/graduation.png); }
+.page17 .tit1 {
+  width: 2.1256rem;
+  height: 6.95652rem;
+  margin-left: -1.04348rem;
+  margin-top: -3.43961rem; }
+  .page17 .tit1 .typo {
+    line-height: 130%;
+    white-space: normal;
+    font-size: 1.93237rem; }
+
+.page18 .tit1 {
+  width: 3.05314rem;
+  height: 0.96618rem;
+  margin-left: -1.50725rem;
+  margin-top: -0.46377rem; }
+
+.page19 .tit1 {
+  width: 7.69082rem;
+  height: 0.96618rem;
+  margin-left: -3.82609rem;
+  margin-top: -0.46377rem; }
+
+.page20 .tit1 {
+  width: 3.05314rem;
+  height: 0.96618rem;
+  margin-left: -1.50725rem;
+  margin-top: -0.46377rem; }
+
+.page21 .tit1 {
+  width: 11.82609rem;
+  height: 0.96618rem;
+  margin-left: -5.8744rem;
+  margin-top: -0.46377rem; }
+
+.page22 .img-box {
+  position: absolute;
+  top: 0; }
+.page22 .img {
+  width: 16rem;
+  height: 100vh;
+  background-size: 100%; }
+.page22 .img1 {
+  background-image: url(../images/building1.png); }
+.page22 .img2 {
+  background-image: url(../images/building2.png); }
+.page22 .img3 {
+  background-image: url(../images/building3.png); }
+.page22 .tit1 {
+  width: 16rem;
+  height: 2.89855rem;
+  margin-left: -8rem;
+  margin-top: -1.4686rem; }
+  .page22 .tit1:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #FFFFFF;
+    opacity: 0.6; }
+  .page22 .tit1 .typo {
+    z-index: 1;
+    position: relative;
+    color: #000000; }
+
+.page23 .tit1 {
+  width: 3.05314rem;
+  height: 0.96618rem;
+  margin-left: -1.50725rem;
+  margin-top: -0.46377rem; }
 
 /*# sourceMappingURL=style.css.map */

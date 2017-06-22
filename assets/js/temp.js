@@ -5,6 +5,9 @@
 
 function getStyle(el) {
     var $el = $(el);
+    $el.css({
+        display: 'inline',
+    })
     var w = $el.width();
     var h = $el.height();
     var gFontSize = parseInt($('html').css('font-size'));

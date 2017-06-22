@@ -36,9 +36,6 @@ var queue = new createjs.LoadQueue();
 queue.on("complete", handleComplete, this);
 queue.loadManifest([
     './assets/audio/flashing_audio.mp3',
-    './assets/images/dlytr.png',
-    './assets/images/dlytr2.png',
-    './assets/images/dlytr3.png',
     './assets/video/out.ts',
 ]);
 
@@ -232,17 +229,175 @@ function handleComplete() {
                 delay: function () {
                     return '+=100ms';
                 },
-                to: 700,
                 mixins: 'flipInX',
                 fill: 'both',
                 easing: 'easeOutCubic',
             }).on('finish', function () {
-                // setTimeout(next, 300);
+                setTimeout(next, 10);
             });
             setTimeout(function () {
                 $page.show();
                 preanimation && preanimation.cancel();
             }, 10);
+        },
+        function page15($page, next) {
+            $page.show();
+            setTimeout(next, 300);
+        },
+        function page16($page, next) {
+            $page.show();
+            var $tit1 = $page.find('.tit1');
+            var $tit2 = $page.find('.tit2');
+            var $tit3 = $page.find('.tit3');
+            var $tit4 = $page.find('.tit4');
+            $tit1.hide();
+            $tit2.hide();
+            $tit3.hide();
+            $tit4.hide();
+            var preanimation = animation;
+            var allCss = [
+                {
+                    transform: 'translate3d(' + (-$(window).height() / 2) + 'px, 0, 0)',
+                    visibility: 'hidden'
+                },
+                {
+                    transform: 'translate3d(0, 0, 0)',
+                    visibility: 'visible'
+                }
+            ];
+
+            var createAnimate = function ($el, css, cb) {
+                animation = just.animate({
+                    targets: $el.get(0),
+                    css: css,
+                    mixins: 'slideInLeft',
+                    delay: function () {
+                        setTimeout(function () {
+                            $el.show();
+                        }, 10);
+                        return 0;
+                    },
+                    to: 200,
+                    fill: 'both',
+                    easing: 'easeIn',
+                }).animate({
+                    targets: $el.get(0),
+                    mixins: 'fadeOut',
+                    delay: 200,
+                    to: 100,
+                    fill: 'both',
+                    easing: 'easeOut',
+                }).on('finish', function (ctx) {
+                    cb();
+                });
+            };
+
+            createAnimate($tit1, allCss, function () {
+                createAnimate($tit2, allCss, function () {
+                    createAnimate($tit3, allCss, function () {
+                        createAnimate($tit4, allCss, function () {
+                            next();
+                        });
+                    });
+                });
+            });
+            setTimeout(function () {
+                $page.show();
+                preanimation && preanimation.cancel();
+            }, 10);
+        },
+        function page17($page, next) {
+            var $img1 = $page.find('.img1');
+            console.log($img1);
+            var preanimation = animation;
+            animation = just.animate({
+                targets: $img1.get(0),
+                css: [
+                    {
+
+                        transform: 'translateZ(0) scale3d(1, 1, 1)'
+                    },
+                    {
+                        transform: 'translateZ(0) scale3d(1.1, 1.1, 1.1)'
+                    }
+                ],
+                fill: 'both',
+                easing: 'linear',
+                to: 1000,
+            }).on('finish', function () {
+                // setTimeout(next, 10);
+            });
+            setTimeout(function () {
+                $page.show();
+                preanimation && preanimation.cancel();
+            }, 10);
+        },
+        function page18($page, next) {
+            $page.show();
+            setTimeout(next, 200);
+        },
+        function page19($page, next) {
+            $page.show();
+            setTimeout(next, 400);
+        },
+        function page20($page, next) {
+            $page.show();
+            setTimeout(next, 200);
+        },
+        function page21($page, next) {
+            $page.show();
+            setTimeout(next, 400);
+        },
+        function page22($page, next) {
+            var $img1 = $page.find('.img1');
+            var $img2 = $page.find('.img2');
+            var $img3 = $page.find('.img3');
+            var preanimation = animation;
+            var createAnimate = function ($el, cb, notOut) {
+                animation = just.animate({
+                    targets: $el.get(0),
+                    css: [
+                        {
+                            transform: 'translateZ(0) scale3d(1, 1, 1)'
+                        },
+                        {
+                            transform: 'translateZ(0) scale3d(1.1, 1.1, 1.1)'
+                        },
+                    ],
+                    fill: 'both',
+                    easing: 'linear',
+                    to: 800,
+                });
+                if (!notOut) {
+                    animation.animate({
+                        targets: $el.get(0),
+                        mixins: 'fadeOut',
+                        fill: 'both',
+                        easing: 'linear',
+                        to: 300,
+                    }).on('finish', function () {
+                        cb();
+                    });
+                } else {
+                    cb();
+                }
+            };
+            createAnimate($img3, function () {
+                createAnimate($img2, function () {
+                    createAnimate($img1, function () {
+                        setTimeout(next, 100);
+                    }, true);
+                });
+            });
+
+            setTimeout(function () {
+                $page.show();
+                preanimation && preanimation.cancel();
+            }, 10);
+        },
+        function next($page, next) {
+            $page.show();
+            setTimeout(next, 1000);
         },
         function next($page, next) {
             $page.show();
@@ -277,8 +432,7 @@ function handleComplete() {
 
     // runAnimate.next();
 
-    runAnimate.next(1);
-
+    runAnimate.next(21);
 
 }
 

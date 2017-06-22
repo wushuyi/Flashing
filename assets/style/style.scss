@@ -65,6 +65,12 @@ $designWidth: 414;
   }
 }
 
+.img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
 .center {
   position: absolute;
   top: 50%;
@@ -306,12 +312,156 @@ $designWidth: 414;
       line-height: 130%;
       white-space: normal;
       font-size: px2rem(50);
-      div[ja-character]{
+      div[ja-character] {
         line-height: 130%;
         white-space: normal;
         font-size: px2rem(50);
       }
     }
+  }
+}
+
+.page15 {
+  .tit1 {
+    width: px2rem(79);
+    height: px2rem(25);
+    margin-left: px2rem(-39);
+    margin-top: px2rem(-12);
+  }
+}
+
+.page16 {
+  .tit1 {
+    width: px2rem(178);
+    height: px2rem(25);
+    margin-left: px2rem(-88);
+    margin-top: px2rem(-12);
+  }
+  .tit2 {
+    width: px2rem(129);
+    height: px2rem(25);
+    margin-left: px2rem(-64);
+    margin-top: px2rem(-12);
+  }
+  .tit3 {
+    width: px2rem(54);
+    height: px2rem(25);
+    margin-left: px2rem(-26);
+    margin-top: px2rem(-12);
+  }
+  .tit4 {
+    width: px2rem(79);
+    height: px2rem(25);
+    margin-left: px2rem(-39);
+    margin-top: px2rem(-12);
+  }
+}
+
+.page17 {
+  .img1 {
+    width: px2rem(414);
+    height: 100vh;
+    background-image: url(../images/graduation.png);
+  }
+  .tit1 {
+    width: px2rem(55);
+    height: px2rem(180);
+    margin-left: px2rem(-27);
+    margin-top: px2rem(-89);
+    .typo {
+      line-height: 130%;
+      white-space: normal;
+      font-size: px2rem(50);
+    }
+  }
+}
+
+.page18 {
+  .tit1 {
+    width: px2rem(79);
+    height: px2rem(25);
+    margin-left: px2rem(-39);
+    margin-top: px2rem(-12);
+  }
+}
+
+.page19 {
+  .tit1 {
+    width: px2rem(199);
+    height: px2rem(25);
+    margin-left: px2rem(-99);
+    margin-top: px2rem(-12);
+  }
+}
+
+.page20 {
+  .tit1 {
+    width: px2rem(79);
+    height: px2rem(25);
+    margin-left: px2rem(-39);
+    margin-top: px2rem(-12);
+  }
+}
+
+.page21 {
+  .tit1 {
+    width: px2rem(306);
+    height: px2rem(25);
+    margin-left: px2rem(-152);
+    margin-top: px2rem(-12);
+  }
+}
+
+.page22 {
+  .img-box {
+    position: absolute;
+    top: 0;
+  }
+  .img {
+    width: px2rem(414);
+    height: 100vh;
+    background-size: 100%;
+  }
+  .img1 {
+    background-image: url(../images/building1.png);
+  }
+  .img2 {
+    background-image: url(../images/building2.png);
+  }
+  .img3 {
+    background-image: url(../images/building3.png);
+  }
+  .tit1{
+    width: px2rem(414);
+    height: px2rem(75);
+    margin-left: px2rem(-207);
+    margin-top: px2rem(-38);
+    &:before{
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #FFFFFF;
+      opacity: 0.6;
+    }
+    .typo{
+      z-index: 1;
+      position: relative;
+      color: #000000;
+      //font-size: px2rem(16);
+    }
+  }
+}
+
+.page23 {
+  .tit1 {
+    width: px2rem(79);
+    height: px2rem(25);
+    margin-left: px2rem(-39);
+    margin-top: px2rem(-12);
   }
 }
 
