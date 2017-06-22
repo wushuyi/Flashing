@@ -627,9 +627,46 @@ $designWidth: 414;
 }
 
 .page33 {
-  .img-box {
+  .img-content {
     width: px2rem(414);
     height: 100vh;
+    position: absolute;
+    .img-box {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .img {
+      width: px2rem(138);
+      height: px2rem(90);
+    }
+  }
+}
+
+.page34 {
+  .tit1 {
+    width: px2rem(104);
+    height: px2rem(25);
+    margin-left: px2rem(-51);
+    margin-top: px2rem(-12);
+  }
+}
+
+.page35 {
+  .tit1 {
+    width: px2rem(497);
+    height: px2rem(75);
+    margin-left: px2rem(-248);
+    margin-top: px2rem(-37);
+  }
+}
+
+.page36 {
+  .tit1 {
+    width: px2rem(104);
+    height: px2rem(25);
+    margin-left: px2rem(-51);
+    margin-top: px2rem(-12);
   }
 }
 

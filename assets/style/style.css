@@ -468,8 +468,34 @@
       font-size: 1.93237rem;
       letter-spacing: 0.38647rem; }
 
-.page33 .img-box {
+.page33 .img-content {
   width: 16rem;
-  height: 100vh; }
+  height: 100vh;
+  position: absolute; }
+  .page33 .img-content .img-box {
+    position: absolute;
+    top: 0;
+    left: 0; }
+  .page33 .img-content .img {
+    width: 5.33333rem;
+    height: 3.47826rem; }
+
+.page34 .tit1 {
+  width: 4.01932rem;
+  height: 0.96618rem;
+  margin-left: -1.97101rem;
+  margin-top: -0.46377rem; }
+
+.page35 .tit1 {
+  width: 19.20773rem;
+  height: 2.89855rem;
+  margin-left: -9.58454rem;
+  margin-top: -1.42995rem; }
+
+.page36 .tit1 {
+  width: 4.01932rem;
+  height: 0.96618rem;
+  margin-left: -1.97101rem;
+  margin-top: -0.46377rem; }
 
 /*# sourceMappingURL=style.css.map */
