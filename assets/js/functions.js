@@ -252,7 +252,7 @@ function handleComplete() {
             $page.show();
             setTimeout(next, 600);
         },
-        function page14($page, next) {
+        /*function page14($page, next) {
             var $tit1 = $page.find('.tit1');
             var preanimation = animation;
             var letters = just.splitText($tit1.find('.typo').get(0)).characters;
@@ -271,7 +271,7 @@ function handleComplete() {
                 $page.show();
                 preanimation && preanimation.cancel();
             }, 10);
-        },
+        },*/
         function page15($page, next) {
             $page.show();
             setTimeout(next, 400);
