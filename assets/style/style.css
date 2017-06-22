@@ -473,12 +473,10 @@
   height: 100vh;
   position: absolute; }
   .page33 .img-content .img-box {
-    position: absolute;
-    top: 0;
-    left: 0; }
+    float: left; }
   .page33 .img-content .img {
     width: 5.33333rem;
-    height: 3.47826rem; }
+    height: 20vh; }
 
 .page34 .tit1 {
   width: 4.01932rem;
@@ -492,10 +490,22 @@
   margin-left: -9.58454rem;
   margin-top: -1.42995rem; }
 
-.page36 .tit1 {
-  width: 4.01932rem;
-  height: 0.96618rem;
-  margin-left: -1.97101rem;
-  margin-top: -0.46377rem; }
+.page36 {
+  background: #FFFFFF; }
+  .page36 .tit1 {
+    width: 8.15459rem;
+    height: 2.00966rem;
+    margin-left: -4.05797rem;
+    margin-top: -0.96618rem; }
+    .page36 .tit1 .typo {
+      line-height: 130%;
+      white-space: normal;
+      font-size: 1.93237rem;
+      color: #000000; }
+      .page36 .tit1 .typo div[ja-character] {
+        line-height: 130%;
+        white-space: normal;
+        font-size: 1.93237rem;
+        color: #000000; }
 
 /*# sourceMappingURL=style.css.map */

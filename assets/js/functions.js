@@ -623,40 +623,24 @@ function handleComplete() {
         function page33($page, next) {
             var $imgContent = $page.find('.img-content');
             var html = '';
-            for (var i = 1; i <= 15; i++) {
-                html += '<div class="img-box"><div class="img" style="background-image: url(./assets/images/work/work' + i + '.png);"></div></div>';
+            var work = 0, top = 0, left = 0;
+            for (var i = 0; i < 3; i++) {
+                for (var j = 1; j < 6; j++) {
+                    work += 1;
+                    html += '<div class="img-box">' +
+                        '<div class="img" style="background-image: url(./assets/images/work/work' + (work) + '.png);"></div>' +
+                        '</div>';
+                }
             }
             $imgContent.append(html);
             var $imgBox = $imgContent.find('.img-box');
-            var winW = $(window).width();
-            var winH = $(window).height();
-            $imgBox.css({
-                transform: 'translate3d(' + -138 * hotcss.dpr + 'px, 0, 0)'
-            });
             var preanimation = animation;
             animation = just.animate({
                 targets: $imgBox.toArray(),
-                css: [
-                    {
-                        transform: 'translate3d(' + -138 * hotcss.dpr + 'px, 0, 0)',
-                    },
-                    {
-                        transform: 'translate3d(' + (winW - 138 * hotcss.dpr) + 'px, 0, 0)',
-                    },
-                    {
-                        transform: 'translate3d(' + (winW - 138 * hotcss.dpr) + 'px, ' + (winH - 90 * hotcss.dpr) + 'px, 0)',
-                    },
-                    {
-                        transform: 'translate3d(' + (0) + 'px, ' + (winH - 90 * hotcss.dpr) + 'px, 0)',
-                    },
-                    {
-                        transform: 'translate3d(' + (0) + 'px, ' + (-90 * hotcss.dpr) + 'px, 0)',
-                    }
-                ],
                 delay: function () {
-                    return '+=400ms';
+                    return '+=300ms';
                 },
-                to: 6000,
+                mixins: 'flipInY',
                 fill: 'both',
                 easing: 'easeInOut',
             }).on('finish', function () {
@@ -666,8 +650,6 @@ function handleComplete() {
                 $page.show();
                 preanimation && preanimation.cancel();
             }, 10);
-            $page.show();
-            // setTimeout(next, 300);
         },
         function page34($page, next) {
             $page.show();
@@ -678,8 +660,51 @@ function handleComplete() {
             setTimeout(next, 300);
         },
         function page36($page, next) {
-            $page.show();
-            // setTimeout(next, 300);
+            var $tit1 = $page.find('.tit1');
+            var preanimation = animation;
+            var letters = just.splitText($tit1.find('.typo').get(0)).characters;
+            animation = just.animate({
+                targets: letters,
+                css: [
+                    {
+                        transform: 'scale3d(3, 3, 3)',
+                        opacity: 0,
+                    },
+                    {
+                        transform: 'scale3d(1, 1, 1)',
+                        opacity: 1,
+                    },
+
+                ],
+                delay: function () {
+                    return '+=300ms';
+                },
+                to: 600,
+                fill: 'both',
+                easing: 'easeOutCubic',
+            }).animate({
+                targets: $tit1.get(0),
+                css: [
+                    {
+                        transform: 'translate3d(0, 0, 0)'
+                    },
+                    {
+                        transform: 'translate3d(0 , ' + (-160 * hotcss.dpr) + 'px , 0)'
+                    },
+                ],
+                delay: function () {
+                    return '+=300ms';
+                },
+                to: 600,
+                fill: 'both',
+                easing: 'easeOutCubic',
+            }).on('finish', function () {
+                // setTimeout(next, 100);
+            });
+            setTimeout(function () {
+                $page.show();
+                preanimation && preanimation.cancel();
+            }, 10);
         },
         function next($page, next) {
             $page.show();
@@ -715,7 +740,7 @@ function handleComplete() {
 
     // runAnimate.next();
 
-    runAnimate.next(35);
+    runAnimate.next(34);
 
 }
 

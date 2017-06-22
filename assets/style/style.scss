@@ -632,13 +632,11 @@ $designWidth: 414;
     height: 100vh;
     position: absolute;
     .img-box {
-      position: absolute;
-      top: 0;
-      left: 0;
+      float: left;
     }
     .img {
       width: px2rem(138);
-      height: px2rem(90);
+      height: 20vh;
     }
   }
 }
@@ -662,11 +660,24 @@ $designWidth: 414;
 }
 
 .page36 {
+  background: #FFFFFF;
   .tit1 {
-    width: px2rem(104);
-    height: px2rem(25);
-    margin-left: px2rem(-51);
-    margin-top: px2rem(-12);
+    width: px2rem(211);
+    height: px2rem(52);
+    margin-left: px2rem(-105);
+    margin-top: px2rem(-25);
+    .typo {
+      line-height: 130%;
+      white-space: normal;
+      font-size: px2rem(50);
+      color: #000000;
+      div[ja-character] {
+        line-height: 130%;
+        white-space: normal;
+        font-size: px2rem(50);
+        color: #000000;
+      }
+    }
   }
 }
 
