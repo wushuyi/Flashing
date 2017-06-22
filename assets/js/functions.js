@@ -44,10 +44,27 @@ var swiftclick = SwiftClick.attach(document.body);
 
 var queue = new createjs.LoadQueue();
 queue.on("complete", handleComplete, this);
-queue.loadManifest([
+var preloadfiles = [
     './assets/audio/flashing_audio.mp3',
     './assets/video/video.mp4',
-]);
+
+    './assets/images/master/hartmut_esslinger.png',
+    './assets/images/master/robin_king.png',
+    './assets/images/graduation.png',
+    './assets/images/Invitation.png',
+    './assets/images/logo.png',
+];
+for (var i = 1; i < 31; i++) {
+    preloadfiles.push('./assets/images/human/human' + i + '.png');
+}
+for (var i = 1; i < 16; i++) {
+    preloadfiles.push('./assets/images/work/work' + i + '.png');
+}
+for (var i = 1; i < 4; i++) {
+    preloadfiles.push('./assets/images/building' + i + '.png');
+    preloadfiles.push('./assets/images/flash' + i + '.png');
+}
+queue.loadManifest(preloadfiles);
 
 function handleComplete() {
     $('.page1').find('.button1 .typo').text('点击进入');
@@ -320,7 +337,6 @@ function handleComplete() {
         },
         function page17($page, next) {
             var $img1 = $page.find('.img1');
-            console.log($img1);
             var preanimation = animation;
             animation = just.animate({
                 targets: $img1.get(0),
@@ -493,7 +509,7 @@ function handleComplete() {
                     css: css,
                     fill: 'both',
                     easing: 'easeOutCubic',
-                    to: 600,
+                    to: 800,
                 }).on('finish', function () {
                     cb && cb();
                 });
@@ -726,6 +742,37 @@ function handleComplete() {
                 preanimation && preanimation.cancel();
             }, 10);
         },
+        function page36_1($page, next) {
+            var $imgContent = $page.find('.img-content');
+            var html = '';
+            var work = 0, top = 0, left = 0;
+            for (var i = 0; i < 6; i++) {
+                for (var j = 1; j < 6; j++) {
+                    work += 1;
+                    html += '<div class="img-box">' +
+                        '<div class="img" style="background-image: url(./assets/images/human/human' + (work) + '.png);"></div>' +
+                        '</div>';
+                }
+            }
+            $imgContent.append(html);
+            var $imgBox = $imgContent.find('.img-box');
+            var preanimation = animation;
+            animation = just.animate({
+                targets: $imgBox.toArray(),
+                delay: function () {
+                    return '+=200ms';
+                },
+                mixins: 'flipInY',
+                fill: 'both',
+                easing: 'easeInOut',
+            }).on('finish', function () {
+                setTimeout(next, 100);
+            });
+            setTimeout(function () {
+                $page.show();
+                preanimation && preanimation.cancel();
+            }, 10);
+        },
         function page37($page, next) {
             var $img1 = $page.find('.img1');
             var $img2 = $page.find('.img2');
@@ -775,6 +822,8 @@ function handleComplete() {
         function page38($page, next) {
             var $img1 = $page.find('.img1');
             var $img2 = $page.find('.img2');
+            $img1.hide();
+            $img2.hide();
             var preanimation = animation;
             var createAnimate = function ($el, cb, notOut) {
                 animation = just.animate({
@@ -807,7 +856,9 @@ function handleComplete() {
                 }
             };
             createAnimate($img2, function () {
-                sound.pause();
+                $img1.show();
+                sound.fade(1, 0, 3000);
+                setTimeout(sound.pause, 4000);
             });
 
             setTimeout(function () {
@@ -846,8 +897,8 @@ function handleComplete() {
             next: next
         };
     })();
-
+    // sound.play();
     runAnimate.next();
-    // runAnimate.next(35);
+    // runAnimate.next(37);
 
 }

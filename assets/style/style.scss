@@ -1,6 +1,13 @@
 $designWidth: 414;
 @import "../libs/hotcss/px2rem";
 
+@font-face {
+  font-family: 'hiragino';
+  src:url('../font/hiragino.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 *:not(input, textarea) {
   moz-user-select: -moz-none;
   -moz-user-select: none;
@@ -51,7 +58,7 @@ $designWidth: 414;
 
 .typo {
   font-weight: 600;
-  font-family: 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+  font-family: 'hiragino, Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
   font-size: px2rem(24);
   white-space: nowrap;
   -webkit-font-smoothing: antialiased;
@@ -688,6 +695,44 @@ $designWidth: 414;
       background-image: url(../images/logo.png);
       width: px2rem(414);
       height: px2rem(154);
+    }
+  }
+}
+
+.page36_1 {
+  .tit1 {
+    width: px2rem(414);
+    height: px2rem(35);
+    margin-left: px2rem(-207);
+    margin-top: px2rem(-12);
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #FFFFFF;
+      opacity: 0.6;
+    }
+    .typo {
+      z-index: 1;
+      position: relative;
+      color: #000000;
+      //font-size: px2rem(16);
+    }
+  }
+  .img-content {
+    width: px2rem(414);
+    height: 100vh;
+    position: absolute;
+    .img-box {
+      float: left;
+    }
+    .img {
+      width: px2rem(69);
+      height: 20vh;
     }
   }
 }
