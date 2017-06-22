@@ -19,6 +19,9 @@
             event.preventDefault();
         }
     }, supportsPassiveOption ? {passive: false, capture: true} : true);
+    document.addEventListener('touchmove', function (event) {
+        event.preventDefault();
+    }, supportsPassiveOption ? {passive: false, capture: true} : true);
     var lastTouchEnd = 0;
     document.addEventListener('touchend', function (event) {
         var now = (new Date()).getTime();
@@ -115,19 +118,19 @@ function handleComplete() {
         },
         function page3($page, next) {
             $page.show();
-            setTimeout(next, 300);
+            setTimeout(next, 1000);
         },
         function page4($page, next) {
             $page.show();
-            setTimeout(next, 300);
+            setTimeout(next, 400);
         },
         function page5($page, next) {
             $page.show();
-            setTimeout(next, 300);
+            setTimeout(next, 400);
         },
         function page6($page, next) {
             $page.show();
-            setTimeout(next, 300);
+            setTimeout(next, 400);
         },
         function page7($page, next) {
             var $tit1 = $page.find('.tit1');
@@ -271,7 +274,7 @@ function handleComplete() {
         },
         function page15($page, next) {
             $page.show();
-            setTimeout(next, 300);
+            setTimeout(next, 400);
         },
         function page16($page, next) {
             $page.show();
@@ -518,7 +521,7 @@ function handleComplete() {
             createAnimate($img1, css1);
             createAnimate($img2, css2);
             createAnimate($img3, css1, function () {
-                setTimeout(next, 300);
+                setTimeout(next, 400);
             });
 
             setTimeout(function () {
@@ -528,7 +531,7 @@ function handleComplete() {
         },
         function page26($page, next) {
             $page.show();
-            setTimeout(next, 300);
+            setTimeout(next, 400);
         },
         function page27($page, next) {
             $page.show();
@@ -557,11 +560,11 @@ function handleComplete() {
         },
         function page29($page, next) {
             $page.show();
-            setTimeout(next, 300);
+            setTimeout(next, 400);
         },
         function page30($page, next) {
             $page.show();
-            setTimeout(next, 300);
+            setTimeout(next, 400);
         },
         function page31($page, next) {
             var $tit1 = $page.find('.tit1');
@@ -670,11 +673,11 @@ function handleComplete() {
         },
         function page34($page, next) {
             $page.show();
-            setTimeout(next, 300);
+            setTimeout(next, 400);
         },
         function page35($page, next) {
             $page.show();
-            setTimeout(next, 300);
+            setTimeout(next, 400);
         },
         function page36($page, next) {
             var $tit1 = $page.find('.tit1');
@@ -773,9 +776,8 @@ function handleComplete() {
                 preanimation && preanimation.cancel();
             }, 10);
         },
-        function page37($page, next) {
+        function page37_1($page, next) {
             var $img1 = $page.find('.img1');
-            var $img2 = $page.find('.img2');
             var preanimation = animation;
             var createAnimate = function ($el, cb, notOut) {
                 animation = just.animate({
@@ -807,12 +809,51 @@ function handleComplete() {
                     setTimeout(cb, 1000);
                 }
             };
-            createAnimate($img2, function () {
-                $page.find('.name').text('罗宾京');
-                createAnimate($img1, function () {
-                    setTimeout(next, 100);
-                }, true);
-            });
+            createAnimate($img1, function () {
+                setTimeout(next, 100);
+            }, true);
+
+            setTimeout(function () {
+                $page.show();
+                preanimation && preanimation.cancel();
+            }, 10);
+        },
+        function page37_2($page, next) {
+            var $img1 = $page.find('.img1');
+            var preanimation = animation;
+            var createAnimate = function ($el, cb, notOut) {
+                animation = just.animate({
+                    targets: $el.get(0),
+                    css: [
+                        {
+                            transform: 'translateZ(0) scale3d(1, 1, 1)'
+                        },
+                        {
+                            transform: 'translateZ(0) scale3d(1.1, 1.1, 1.1)'
+                        },
+                    ],
+                    fill: 'both',
+                    easing: 'linear',
+                    to: 800,
+                });
+                if (!notOut) {
+                    animation.animate({
+                        targets: $el.get(0),
+                        mixins: 'fadeOut',
+                        fill: 'both',
+                        easing: 'linear',
+                        delay: 1000,
+                        to: 300,
+                    }).on('finish', function () {
+                        cb();
+                    });
+                } else {
+                    setTimeout(cb, 1000);
+                }
+            };
+            createAnimate($img1, function () {
+                setTimeout(next, 100);
+            }, true);
 
             setTimeout(function () {
                 $page.show();
@@ -860,6 +901,7 @@ function handleComplete() {
                 sound.fade(1, 0, 3000);
                 setTimeout(sound.pause, 4000);
             });
+            $img2.show();
 
             setTimeout(function () {
                 $page.show();
@@ -888,7 +930,8 @@ function handleComplete() {
                 var args = $.fn.toArray(arguments).slice(1);
                 // alert(JSON.stringify(args));
                 pages.eq(index - 1).hide();
-                pageList[index] && pageList[index].apply(null, [pages.eq(index), next]);
+                pageList[index] && pageList[index].apply(null, [pages.eq(index), function () {
+                }]);
                 index += 1;
             }
         }

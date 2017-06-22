@@ -3,7 +3,7 @@ $designWidth: 414;
 
 @font-face {
   font-family: 'hiragino';
-  src:url('../font/hiragino.ttf') format('truetype');
+  src: url('../font/hiragino.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -87,10 +87,10 @@ $designWidth: 414;
 .page1 {
   display: block;
   .tit1 {
-    width: px2rem(310);
-    height: px2rem(30);
-    margin-left: px2rem(-310/ 2);
-    margin-top: px2rem(-36);
+    width: px2rem(414);
+    height: px2rem(68);
+    margin-left: px2rem(-207);
+    margin-top: px2rem(-83);
   }
   .button1 {
     width: px2rem(120);
@@ -99,6 +99,7 @@ $designWidth: 414;
     margin-top: px2rem(20);
     border: px2rem(1) solid #FFFFFF;
     border-radius: px2rem(10);
+    line-height: 120%;
     .typo {
       font-size: px2rem(16);
     }
@@ -447,10 +448,10 @@ $designWidth: 414;
       content: '';
       display: block;
       position: absolute;
-      top: 0;
+      top: px2rem(-12);
       left: 0;
       right: 0;
-      bottom: 0;
+      bottom: px2rem(-6);
       background: #FFFFFF;
       opacity: 0.6;
     }
@@ -520,10 +521,10 @@ $designWidth: 414;
       content: '';
       display: block;
       position: absolute;
-      top: 0;
+      top: px2rem(-10);
       left: 0;
       right: 0;
-      bottom: 0;
+      bottom: px2rem(-10);
       background: #FFFFFF;
       opacity: 0.6;
     }
@@ -709,10 +710,10 @@ $designWidth: 414;
       content: '';
       display: block;
       position: absolute;
-      top: 0;
+      top: px2rem(-10);
       left: 0;
       right: 0;
-      bottom: 0;
+      bottom: px2rem(-10);
       background: #FFFFFF;
       opacity: 0.6;
     }
@@ -737,7 +738,7 @@ $designWidth: 414;
   }
 }
 
-.page37 {
+.page37_1 {
   .img-box {
     position: absolute;
     top: 0;
@@ -751,7 +752,43 @@ $designWidth: 414;
   .img1 {
     background-image: url(../images/master/robin_king.png);
   }
-  .img2 {
+  .tit1 {
+    width: px2rem(414);
+    height: px2rem(73);
+    margin-left: px2rem(-207);
+    margin-top: px2rem(-36);
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: px2rem(-10);
+      left: 0;
+      right: 0;
+      bottom: px2rem(-10);
+      background: #FFFFFF;
+      opacity: 0.6;
+    }
+    .typo {
+      z-index: 1;
+      position: relative;
+      color: #000000;
+      //font-size: px2rem(16);
+    }
+  }
+}
+
+.page37_2 {
+  .img-box {
+    position: absolute;
+    top: 0;
+  }
+  .img {
+    width: px2rem(414);
+    height: 100vh;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+  .img1 {
     background-image: url(../images/master/hartmut_esslinger.png);
   }
   .tit1 {
@@ -763,10 +800,10 @@ $designWidth: 414;
       content: '';
       display: block;
       position: absolute;
-      top: 0;
+      top: px2rem(-10);
       left: 0;
       right: 0;
-      bottom: 0;
+      bottom: px2rem(-10);
       background: #FFFFFF;
       opacity: 0.6;
     }
@@ -808,10 +845,10 @@ $designWidth: 414;
       content: '';
       display: block;
       position: absolute;
-      top: 0;
+      top: px2rem(-10);
       left: 0;
       right: 0;
-      bottom: 0;
+      bottom: px2rem(-10);
       background: #FFFFFF;
       opacity: 0.6;
     }
