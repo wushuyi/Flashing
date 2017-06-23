@@ -357,10 +357,10 @@
   }
 //}*/
 .page24 .tit1 {
-  width: 4.01932rem;
-  height: 0.96618rem;
-  margin-left: -1.97101rem;
-  margin-top: -6.18357rem; }
+  width: 7.84541rem;
+  height: 2.62802rem;
+  margin-left: -3.90338rem;
+  margin-top: -7.343rem; }
 .page24 .video1 {
   width: 16.7343rem;
   height: 9.31401rem;
@@ -387,9 +387,9 @@
   background-image: url(../images/flash3.png); }
 .page25 .tit1 {
   width: 16rem;
-  height: 1.4686rem;
+  height: 2.62802rem;
   margin-left: -8rem;
-  margin-top: -0.7343rem; }
+  margin-top: -1.27536rem; }
   .page25 .tit1:before {
     content: '';
     display: block;
@@ -559,7 +559,8 @@
   width: 16rem;
   height: 2.82126rem;
   margin-left: -8rem;
-  margin-top: -1.3913rem; }
+  top: auto;
+  bottom: 0.38647rem; }
   .page37_1 .tit1:before {
     content: '';
     display: block;
@@ -589,7 +590,8 @@
   width: 16rem;
   height: 2.82126rem;
   margin-left: -8rem;
-  margin-top: -1.3913rem; }
+  top: auto;
+  bottom: 0.38647rem; }
   .page37_2 .tit1:before {
     content: '';
     display: block;

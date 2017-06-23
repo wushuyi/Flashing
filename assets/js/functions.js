@@ -962,7 +962,7 @@ function handleComplete() {
                 var args = $.fn.toArray(arguments).slice(1);
                 // alert(JSON.stringify(args));
                 pages.eq(index - 1).hide();
-                pageList[index] && pageList[index].apply(null, [pages.eq(index), next]);
+                pageList[index] && pageList[index].apply(null, [pages.eq(index), function(){}]);
                 index += 1;
             }
         }
@@ -972,7 +972,7 @@ function handleComplete() {
         };
     })();
     // sound.play();
-    runAnimate.next();
+    runAnimate.next(25);
     // runAnimate.next(37);
 }
 var loader = new PxLoader();

@@ -475,10 +475,10 @@ $designWidth: 414;
 
 .page24 {
   .tit1 {
-    width: px2rem(104);
-    height: px2rem(25);
-    margin-left: px2rem(-51);
-    margin-top: px2rem(-160);
+    width: px2rem(203);
+    height: px2rem(68);
+    margin-left: px2rem(-101);
+    margin-top: px2rem(-190);
   }
   .video1 {
     width: px2rem(433);
@@ -515,9 +515,9 @@ $designWidth: 414;
   }
   .tit1 {
     width: px2rem(414);
-    height: px2rem(38);
+    height: px2rem(68);
     margin-left: px2rem(-207);
-    margin-top: px2rem(-19);
+    margin-top: px2rem(-33);
     &:before {
       content: '';
       display: block;
@@ -757,7 +757,8 @@ $designWidth: 414;
     width: px2rem(414);
     height: px2rem(73);
     margin-left: px2rem(-207);
-    margin-top: px2rem(-36);
+    top: auto;
+    bottom: px2rem(10);
     &:before {
       content: '';
       display: block;
@@ -796,7 +797,8 @@ $designWidth: 414;
     width: px2rem(414);
     height: px2rem(73);
     margin-left: px2rem(-207);
-    margin-top: px2rem(-36);
+    top: auto;
+    bottom: px2rem(10);
     &:before {
       content: '';
       display: block;
