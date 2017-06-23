@@ -369,7 +369,7 @@ $designWidth: 414;
   .img1 {
     width: px2rem(414);
     height: 100vh;
-    background-image: url(../images/graduation.png);
+    background-image: url(../images/graduation.png?);
   }
   .tit1 {
     width: px2rem(55);
@@ -753,13 +753,9 @@ $designWidth: 414;
   .img1 {
     background-image: url(../images/master/robin_king.png);
   }
-  //.move {
-  //  position: absolute;
-  //  transform: translate3d(-100%, 0, 0);
-  //}
   .tit1 {
     width: px2rem(414);
-    height: px2rem(73);
+    height: px2rem(34);
     margin-left: px2rem(-207);
     top: auto;
     bottom: px2rem(10);
@@ -775,10 +771,16 @@ $designWidth: 414;
       opacity: 0.6;
     }
     .typo {
+      width: px2rem(414);
+      height: px2rem(34);
       z-index: 1;
-      position: relative;
+      position: absolute;
       color: #000000;
       //font-size: px2rem(16);
+      &:nth-of-type(3){
+        line-height: 200%;
+        font-size: px2rem(18);
+      }
     }
   }
 }
@@ -799,7 +801,7 @@ $designWidth: 414;
   }
   .tit1 {
     width: px2rem(414);
-    height: px2rem(73);
+    height: px2rem(34);
     margin-left: px2rem(-207);
     top: auto;
     bottom: px2rem(10);
@@ -815,10 +817,16 @@ $designWidth: 414;
       opacity: 0.6;
     }
     .typo {
+      width: px2rem(414);
+      height: px2rem(34);
       z-index: 1;
-      position: relative;
+      position: absolute;
       color: #000000;
       //font-size: px2rem(16);
+      &:nth-of-type(3){
+        line-height: 200%;
+        font-size: px2rem(18);
+      }
     }
   }
 }
@@ -835,13 +843,13 @@ $designWidth: 414;
     background-position: 50% 50%;
   }
   .img1 {
-    background-image: url(../images/Invitation.png);
+    background-image: url(../images/invitation.png);
     background-color: #BD1C20;
     background-size: 100%;
     background-position: 50% 50%;
   }
   .img2 {
-    background-image: url(../images/fly.png);
+    background-image: url(../images/fly.png?v1);
   }
   .tit1 {
     width: px2rem(414);

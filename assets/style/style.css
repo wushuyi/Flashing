@@ -280,7 +280,7 @@
 .page17 .img1 {
   width: 16rem;
   height: 100vh;
-  background-image: url(../images/graduation.png); }
+  background-image: url(../images/graduation.png?); }
 .page17 .tit1 {
   width: 2.1256rem;
   height: 6.95652rem;
@@ -557,7 +557,7 @@
   background-image: url(../images/master/robin_king.png); }
 .page37_1 .tit1 {
   width: 16rem;
-  height: 2.82126rem;
+  height: 1.31401rem;
   margin-left: -8rem;
   top: auto;
   bottom: 0.38647rem; }
@@ -572,9 +572,14 @@
     background: #FFFFFF;
     opacity: 0.6; }
   .page37_1 .tit1 .typo {
+    width: 16rem;
+    height: 1.31401rem;
     z-index: 1;
-    position: relative;
+    position: absolute;
     color: #000000; }
+    .page37_1 .tit1 .typo:nth-of-type(3) {
+      line-height: 200%;
+      font-size: 0.69565rem; }
 
 .page37_2 .img-box {
   position: absolute;
@@ -588,7 +593,7 @@
   background-image: url(../images/master/hartmut_esslinger.png); }
 .page37_2 .tit1 {
   width: 16rem;
-  height: 2.82126rem;
+  height: 1.31401rem;
   margin-left: -8rem;
   top: auto;
   bottom: 0.38647rem; }
@@ -603,9 +608,14 @@
     background: #FFFFFF;
     opacity: 0.6; }
   .page37_2 .tit1 .typo {
+    width: 16rem;
+    height: 1.31401rem;
     z-index: 1;
-    position: relative;
+    position: absolute;
     color: #000000; }
+    .page37_2 .tit1 .typo:nth-of-type(3) {
+      line-height: 200%;
+      font-size: 0.69565rem; }
 
 .page38 .img-box {
   position: absolute;
@@ -616,12 +626,12 @@
   background-size: cover;
   background-position: 50% 50%; }
 .page38 .img1 {
-  background-image: url(../images/Invitation.png);
+  background-image: url(../images/invitation.png);
   background-color: #BD1C20;
   background-size: 100%;
   background-position: 50% 50%; }
 .page38 .img2 {
-  background-image: url(../images/fly.png); }
+  background-image: url(../images/fly.png?v1); }
 .page38 .tit1 {
   width: 16rem;
   height: 1.42995rem;
