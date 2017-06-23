@@ -1019,7 +1019,7 @@ if (isWeiXin) {
                 setData: {
                     title: '这个潜伏在教育界的神秘力量终于出现了',
                     descContent: '2017上海视觉艺术学院德稻实验班一期毕业典礼',
-                    imgUrl: './assets/images/favicon.png',
+                    imgUrl: 'http://m.5151study.com/Flashing/assets/images/favicon.png',
                 }
             });
         });
