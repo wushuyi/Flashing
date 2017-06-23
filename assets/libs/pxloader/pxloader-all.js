@@ -663,12 +663,12 @@
 
     return PxLoaderImage;
 }));
-// PxLoader plugin to load video elements
+// PxLoader plugin to load data
 (function(root, factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
         define(['pxloader'], function(PxLoader) {
-            return (root.PxLoaderVideo = factory(PxLoader));
+            return (root.PxLoaderData = factory(PxLoader));
         });
     } else if (typeof module === 'object' && module.exports) {
         // Node. Does not work with strict CommonJS, but
@@ -677,34 +677,31 @@
         module.exports = factory(require('pxloader'));
     } else {
         // Browser globals
-        root.PxLoaderVideo = factory(root.PxLoader);
+        root.PxLoaderData = factory(root.PxLoader);
     }
 }(this, function(PxLoader) {
-    function PxLoaderVideo(url, tags, priority, options) {
+    function PxLoaderData(url, tags, priority, options) {
         options = options || {};
-        
+
         var self = this,
-            loader = null,
-            video;
+            loader = null;
 
-        this.readyEventName = 'canplaythrough';
-        
-        video = this.video = document.createElement('video');
-
-        if (options.origin) {
-            video.crossOrigin = options.origin;
-        }
-        video.preload = 'auto';
-        
+        // used by the loader to categorize and prioritize
         this.tags = tags;
         this.priority = priority;
 
+        this.xhr = new XMLHttpRequest();
+
         var onReadyStateChange = function() {
-            if (self.video.readyState !== 4) {
+            if (self.xhr.readyState !== 4) {
                 return;
             }
-            
-            onLoad();
+
+            if (self.xhr.status === 200 ) {
+                onLoad();
+            } else {
+                onError();
+            }
         };
 
         var onLoad = function() {
@@ -716,40 +713,32 @@
             loader.onError(self);
             cleanup();
         };
-        
+
         var onTimeout = function() {
             loader.onTimeout(self);
             cleanup();
         };
 
         var cleanup = function() {
-            self.unbind('load', onLoad);
-            self.unbind(self.readyEventName, onReadyStateChange);
+            self.unbind('readystatechange', onReadyStateChange);
             self.unbind('error', onError);
-            // Force browser to release connection
-            self.video.src = '';
         };
 
-        this.start = function(pxLoader) {
+        // called by PxLoader to trigger download
+        this.start = function( pxLoader ) {
             // we need the loader ref so we can notify upon completion
             loader = pxLoader;
 
-            // NOTE: Must add event listeners before the src is set. We
-            // also need to use the readystatechange because sometimes
-            // load doesn't fire when an video is in the cache.
-            self.bind('load', onLoad);
-            self.bind(self.readyEventName, onReadyStateChange);
+            // set up event handlers so we send the loader progress updates
+            self.bind('readystatechange', onReadyStateChange);
             self.bind('error', onError);
 
-            // sometimes the browser will intentionally stop downloading
-            // the video. In that case we'll consider the video loaded
-            self.bind('suspend', onLoad);
-
-            self.video.src = url;
-            self.video.load();
+            self.xhr.open('GET', url, true);
+            self.xhr.send(null);
+            self.xhr.responseType = (options.responseType) ? options.responseType : '';
         };
 
-        // called by PxLoader to check status of video (fallback in case
+        // called by PxLoader to check status of request (fallback in case
         // the event listeners are not triggered).
         this.checkStatus = function() {
             onReadyStateChange();
@@ -757,8 +746,13 @@
 
         // called by PxLoader when it is no longer waiting
         this.onTimeout = function() {
-            if (self.video.readyState !== 4) {
-                onLoad();
+            // must report a status to the loader: load, error, or timeout
+            if (self.xhr.readyState === 4) {
+                if (self.xhr.status === 200) {
+                    onLoad();
+                } else {
+                    onError();
+                }
             } else {
                 onTimeout();
             }
@@ -771,24 +765,24 @@
 
         // cross-browser event binding
         this.bind = function(eventName, eventHandler) {
-            self.video.addEventListener(eventName, eventHandler, false);
+            self.xhr.addEventListener(eventName, eventHandler, false);
         };
 
         // cross-browser event un-binding
         this.unbind = function(eventName, eventHandler) {
-            self.video.removeEventListener(eventName, eventHandler, false);
+            self.xhr.removeEventListener(eventName, eventHandler, false);
         };
-
     }
 
-    // add a convenience method to PxLoader for adding a video
-    PxLoader.prototype.addVideo = function(url, tags, priority, options) {
-        var videoLoader = new PxLoaderVideo(url, tags, priority, options);
-        this.add(videoLoader);
+    // add a convenience method to PxLoader for adding a data
+    PxLoader.prototype.addData = function(url, tags, priority, options) {
+        var dataLoader = new PxLoaderData(url, tags, priority, options);
 
-        // return the video element to the caller
-        return videoLoader.video;
+        this.add(dataLoader);
+
+        // return the request object to the caller
+        return dataLoader.xhr;
     };
 
-    return PxLoaderVideo;
+    return PxLoaderData;
 }));

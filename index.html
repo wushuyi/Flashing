@@ -264,8 +264,14 @@
             </div>
 
             <div class="center tit1">
-                <div class="typo">德稻动画及数字产业大师</div>
-                <div class="typo">罗宾京 Robin King</div>
+                <div class="move">
+                    <div class="typo">德稻动画及数字产业大师</div>
+                    <div class="typo">罗宾京 Robin King</div>
+                </div>
+                <!--<div class="move">-->
+                    <!--<div class="typo">青蛙设计创始人</div>-->
+                    <!--<div class="typo">美国国家设计终身成就奖得主</div>-->
+                <!--</div>-->
             </div>
         </div>
 
@@ -388,18 +394,19 @@
 </div>
 </body>
 <script>
+    var varsion = '?1.0';
     $script.path('./assets/');
     $script([
-        'libs/pxloader/pxloader-all',
-        'libs/jquery/3.2.1/jquery.min',
-        'libs/howler/2.0.4/howler.min',
-        'libs/web-animations/web-animations.min',
-        'libs/just-animate/1.2.3/just-animate-all.min',
-        'libs/swiftclick/2.1.1/swiftclick.min',
-        'libs/jsmpeg/jsmpeg.min',
+        'libs/pxloader/pxloader-all.js' + varsion,
+        'libs/jquery/3.2.1/jquery.min.js' + varsion,
+        'libs/howler/2.0.4/howler.min.js' + varsion,
+        'libs/web-animations/web-animations.min.js' + varsion,
+        'libs/just-animate/1.2.3/just-animate-all.min.js' + varsion,
+        'libs/swiftclick/2.1.1/swiftclick.min.js' + varsion,
+        'libs/jsmpeg/jsmpeg.min.js' + varsion,
     ], function () {
         $script([
-            'js/functions',
+            'js/functions.js' + varsion,
         ], function () {
             loader.start();
         });

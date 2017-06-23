@@ -962,7 +962,8 @@ function handleComplete() {
                 var args = $.fn.toArray(arguments).slice(1);
                 // alert(JSON.stringify(args));
                 pages.eq(index - 1).hide();
-                pageList[index] && pageList[index].apply(null, [pages.eq(index), function(){}]);
+                pageList[index] && pageList[index].apply(null, [pages.eq(index), function () {
+                }]);
                 index += 1;
             }
         }
@@ -981,8 +982,8 @@ $.each(preloadImages, function (index, item) {
     loader.addImage(item);
 });
 
+loader.addData('./assets/video/video.mp4');
 loader.addAudio('./assets/audio/flashing_audio.mp3');
-loader.addVideo('./assets/video/video.mp4');
 
 loader.addProgressListener(function (e) {
     var num = parseInt(e.completedCount / e.totalCount * 100) + '%';
@@ -1001,7 +1002,7 @@ var isWeiXin = (function () {
 })();
 
 if (isWeiXin) {
-    $script(['http://res.wx.qq.com/open/js/jweixin-1.0.0.js', 'js/wxshare.js'], function () {
+    $script(['http://res.wx.qq.com/open/js/jweixin-1.0.0.js', 'js/wxshare.js' + varsion], function () {
         var getQueryConfig = {
             'version': "1.0.0",
             "platform": "H5"
