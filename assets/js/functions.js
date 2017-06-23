@@ -1,37 +1,8 @@
 /**
  * Created by wushuyi on 2017/6/20.
  */
-// ios 10 禁止缩放
-(function () {
-    var supportsPassiveOption = false;
-    try {
-        var opts = Object.defineProperty({}, 'passive', {
-            get: function () {
-                supportsPassiveOption = true;
-            }
-        });
-        window.addEventListener('test', null, opts);
-    } catch (e) {
-    }
 
-    document.addEventListener('touchstart', function (event) {
-        if (event.touches.length > 1) {
-            event.preventDefault();
-        }
-    }, supportsPassiveOption ? {passive: false, capture: true} : true);
-    document.addEventListener('touchmove', function (event) {
-        event.preventDefault();
-    }, supportsPassiveOption ? {passive: false, capture: true} : true);
-    var lastTouchEnd = 0;
-    document.addEventListener('touchend', function (event) {
-        var now = (new Date()).getTime();
-        if (now - lastTouchEnd <= 300) {
-            event.preventDefault();
-        }
-        lastTouchEnd = now;
-    }, supportsPassiveOption ? {passive: false, capture: false} : false);
-})();
-//
+//JSMpeg
 (function (JSMpeg) {
     var pause = JSMpeg.Player.prototype.pause;
     JSMpeg.Player.prototype.pause = function () {
@@ -45,39 +16,30 @@
 //消除点击延迟
 var swiftclick = SwiftClick.attach(document.body);
 
-var queue = new createjs.LoadQueue(false);
-queue.on("complete", function () {
-    var queue2 = new createjs.LoadQueue();
-    queue2.on("complete", function () {
-        handleComplete();
-    }, this);
-    queue2.loadManifest([
-        './assets/audio/flashing_audio.mp3',
-        './assets/video/video.mp4',
-    ]);
-}, this);
+var preloadImages = (function () {
+    var images = [
+        './assets/images/master/hartmut_esslinger.png',
+        './assets/images/master/robin_king.png',
+        './assets/images/graduation.png',
+        './assets/images/Invitation.png',
+        './assets/images/logo.png',
+    ];
+    for (var i = 1; i < 31; i++) {
+        images.push('./assets/images/human/human' + i + '.png');
+    }
+    for (var i = 1; i < 18; i++) {
+        images.push('./assets/images/work/work' + i + '.png');
+    }
+    for (var i = 1; i < 4; i++) {
+        images.push('./assets/images/building' + i + '.png');
+    }
+    return images;
+})();
 
-var preloadfiles = [
-    './assets/images/master/hartmut_esslinger.png',
-    './assets/images/master/robin_king.png',
-    './assets/images/graduation.png',
-    './assets/images/Invitation.png',
-    './assets/images/logo.png',
-];
-for (var i = 1; i < 31; i++) {
-    preloadfiles.push('./assets/images/human/human' + i + '.png');
-}
-for (var i = 1; i < 18; i++) {
-    preloadfiles.push('./assets/images/work/work' + i + '.png');
-}
-for (var i = 1; i < 4; i++) {
-    preloadfiles.push('./assets/images/building' + i + '.png');
-    // preloadfiles.push('./assets/images/flash' + i + '.png');
-}
-queue.loadManifest(preloadfiles);
+$typo = $('.page1').find('.button1 .typo');
 
 function handleComplete() {
-    $('.page1').find('.button1 .typo').text('点击进入');
+    $typo.text('点击进入');
     var sound = new Howl({
         src: ['./assets/audio/flashing_audio.mp3'],
         loop: true,
@@ -1012,4 +974,56 @@ function handleComplete() {
     // sound.play();
     runAnimate.next();
     // runAnimate.next(37);
+}
+var loader = new PxLoader();
+
+$.each(preloadImages, function (index, item) {
+    loader.addImage(item);
+});
+
+loader.addAudio('./assets/audio/flashing_audio.mp3');
+loader.addVideo('./assets/video/video.mp4');
+
+loader.addProgressListener(function (e) {
+    var num = parseInt(e.completedCount / e.totalCount * 100) + '%';
+    $typo.text('加载中' + num);
+});
+loader.addCompletionListener(handleComplete);
+
+// 设置微信分享
+var isWeiXin = (function () {
+    var ua = window.navigator.userAgent.toLowerCase();
+    if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+        return true;
+    } else {
+        return false;
+    }
+})();
+
+if (isWeiXin) {
+    $script(['http://res.wx.qq.com/open/js/jweixin-1.0.0.js', 'js/wxshare.js'], function () {
+        var getQueryConfig = {
+            'version': "1.0.0",
+            "platform": "H5"
+        };
+
+        function getWeiXinShareUrl(url) {
+            return 'http://api.5151study.com/weixin/signature?url=' + url;
+        }
+
+        var reqUrl = getWeiXinShareUrl(location.href);
+
+        $.get(reqUrl, getQueryConfig, function (data) {
+            wxshare.init({
+                initData: data.data,
+                setData: {
+                    title: '这个潜伏在教育界的神秘力量终于出现了',
+                    descContent: '2017上海视觉艺术学院德稻实验班一期毕业典礼',
+                    imgUrl: './assets/images/favicon.png',
+                }
+            });
+        });
+
+        console.log('jweixin');
+    });
 }

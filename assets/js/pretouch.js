@@ -19,6 +19,9 @@
             event.preventDefault();
         }
     }, supportsPassiveOption ? {passive: false, capture: true} : true);
+    document.addEventListener('touchmove', function (event) {
+        event.preventDefault();
+    }, supportsPassiveOption ? {passive: false, capture: true} : true);
     var lastTouchEnd = 0;
     document.addEventListener('touchend', function (event) {
         var now = (new Date()).getTime();
