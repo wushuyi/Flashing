@@ -972,17 +972,18 @@ function handleComplete() {
         };
     })();
     // sound.play();
-    runAnimate.next(25);
+    runAnimate.next();
     // runAnimate.next(37);
 }
 var loader = new PxLoader();
+
+loader.addData('./assets/video/video.mp4');
 
 $.each(preloadImages, function (index, item) {
     loader.addImage(item);
 });
 
-loader.addData('./assets/video/video.mp4');
-loader.addAudio('./assets/audio/flashing_audio.mp3');
+loader.addData('./assets/audio/flashing_audio.mp3');
 
 loader.addProgressListener(function (e) {
     var num = parseInt(e.completedCount / e.totalCount * 100) + '%';
