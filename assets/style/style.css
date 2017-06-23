@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @font-face {
   font-family: 'hiragino';
   src: url("../font/hiragino.ttf") format("truetype");
@@ -47,14 +46,14 @@
 
 .typo {
   font-weight: 600;
-  font-family: 'hiragino, Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+  font-family: hiragino, sans-serif;
   font-size: 0.92754rem;
   white-space: nowrap;
   -webkit-font-smoothing: antialiased;
   color: #FFFFFF; }
   .typo div[ja-character] {
     font-weight: 600;
-    font-family: 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+    font-family: hiragino, sans-serif;
     font-size: 0.92754rem;
     -webkit-font-smoothing: antialiased;
     color: #FFFFFF; }
