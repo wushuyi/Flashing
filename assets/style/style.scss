@@ -58,14 +58,14 @@ $designWidth: 414;
 
 .typo {
   font-weight: 600;
-  font-family: hiragino, sans-serif;
+  font-family: hiragino, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
   font-size: px2rem(24);
   white-space: nowrap;
   -webkit-font-smoothing: antialiased;
   color: #FFFFFF;
   div[ja-character] {
     font-weight: 600;
-    font-family: hiragino, sans-serif;
+    font-family: hiragino, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
     font-size: px2rem(24);
     -webkit-font-smoothing: antialiased;
     color: #FFFFFF;
