@@ -7,10 +7,8 @@ var wxshare = (function () {
                 link: _lineLink,
                 imgUrl: _imgUrl,
                 success: function () {
-                    alert('成功!');
                 },
                 cancel: function () {
-                    alert('失败!');
                 }
             });
         }
