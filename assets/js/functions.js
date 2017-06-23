@@ -962,8 +962,7 @@ function handleComplete() {
                 var args = $.fn.toArray(arguments).slice(1);
                 // alert(JSON.stringify(args));
                 pages.eq(index - 1).hide();
-                pageList[index] && pageList[index].apply(null, [pages.eq(index), function () {
-                }]);
+                pageList[index] && pageList[index].apply(null, [pages.eq(index), next]);
                 index += 1;
             }
         }
