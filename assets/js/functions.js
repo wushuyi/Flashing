@@ -525,7 +525,7 @@ function handleComplete() {
                     mixins: mixins,
                     fill: 'both',
                     easing: 'linear',
-                    to: 400,
+                    to: 200,
                 });
                 if (!notOut) {
                     animation.animate({
@@ -655,7 +655,7 @@ function handleComplete() {
                     mixins: mixins,
                     fill: 'both',
                     easing: 'linear',
-                    to: 400,
+                    to: 200,
                 });
                 if (!notOut) {
                     animation.animate({
@@ -961,17 +961,19 @@ function handleComplete() {
         function page38($page, next) {
             var $img1 = $page.find('.img1');
             var $img2 = $page.find('.img2');
-            $img1.hide();
-            $img2.hide();
+            $img1.css({opacity: 0});
+            $img2.css({opacity: 0});
             var preanimation = animation;
             var createAnimate = function ($el, cb, notOut) {
                 animation = just.animate({
                     targets: $el.get(0),
                     css: [
                         {
+                            opacity: 0.8,
                             transform: 'translateZ(0) scale3d(1, 1, 1)'
                         },
                         {
+                            opacity: 1,
                             transform: 'translateZ(0) scale3d(1.25, 1.25, 1.25)'
                         },
                     ],
@@ -995,7 +997,42 @@ function handleComplete() {
                 }
             };
             createAnimate($img2, function () {
-                $img1.show();
+                animation = just.animate({
+                    targets: $img1.get(0),
+                    css: [
+                        {
+                            offset: 0,
+                            transform: 'perspective(400px)',
+                            rotateX: '90deg',
+                            opacity: 0
+                        },
+                        {
+                            offset: 0.4,
+                            transform: 'perspective(400px)',
+                            rotateX: '20deg'
+                        },
+                        {
+                            offset: 0.6,
+                            transform: 'perspective(400px)',
+                            rotateX: '10deg',
+                            opacity: 1
+                        },
+                        {
+                            offset: 0.8,
+                            transform: 'perspective(400px)',
+                            rotateX: '0deg',
+                        },
+                        {
+                            offset: 1,
+                            opacity: 1,
+                            transform: 'perspective(400px)'
+                        }
+                    ],
+                    // mixins: 'flipInX',
+                    fill: 'both',
+                    easing: 'linear',
+                    to: 800,
+                });
                 sound.fade(1, 0, 3000);
                 // setTimeout(sound.pause, 4000);
             });
@@ -1029,7 +1066,8 @@ function handleComplete() {
                 var args = $.fn.toArray(arguments).slice(1);
                 // alert(JSON.stringify(args));
                 pages.eq(index - 1).hide();
-                pageList[index] && pageList[index].apply(null, [pages.eq(index), next]);
+                pageList[index] && pageList[index].apply(null, [pages.eq(index), function () {
+                }]);
                 index += 1;
             }
         }
@@ -1039,7 +1077,7 @@ function handleComplete() {
         };
     })();
     // sound.play();
-    runAnimate.next();
+    runAnimate.next(35);
     // runAnimate.next(37);
 }
 var loader = new PxLoader();

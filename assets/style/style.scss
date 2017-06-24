@@ -704,9 +704,9 @@ $designWidth: 414;
 .page36_1 {
   .tit1 {
     width: px2rem(414);
-    height: px2rem(35);
+    height: px2rem(90);
     margin-left: px2rem(-207);
-    margin-top: px2rem(-12);
+    margin-top: px2rem(-44);
     &:before {
       content: '';
       display: block;
@@ -758,7 +758,7 @@ $designWidth: 414;
     height: px2rem(34);
     margin-left: px2rem(-207);
     top: auto;
-    bottom: px2rem(10);
+    bottom: px2rem(160);
     &:before {
       content: '';
       display: block;
@@ -779,7 +779,7 @@ $designWidth: 414;
       //font-size: px2rem(16);
       &:nth-of-type(3){
         line-height: 200%;
-        font-size: px2rem(18);
+        font-size: px2rem(17.5);
       }
     }
   }
@@ -804,7 +804,7 @@ $designWidth: 414;
     height: px2rem(34);
     margin-left: px2rem(-207);
     top: auto;
-    bottom: px2rem(10);
+    bottom: px2rem(160);
     &:before {
       content: '';
       display: block;
@@ -849,9 +849,9 @@ $designWidth: 414;
   }
   .tit1 {
     width: px2rem(414);
-    height: px2rem(37);
+    height: px2rem(73);
     margin-left: px2rem(-207);
-    margin-top: px2rem(-18);
+    margin-top: px2rem(10);
     &:before {
       content: '';
       display: block;
