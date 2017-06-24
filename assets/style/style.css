@@ -46,14 +46,12 @@
   text-align: center; }
 
 .typo {
-  font-weight: 600;
   font-family: hiragino, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
   font-size: 0.92754rem;
   white-space: nowrap;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
   color: #FFFFFF; }
   .typo div[ja-character] {
-    font-weight: 600;
     font-family: hiragino, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
     font-size: 0.92754rem;
     -webkit-font-smoothing: antialiased;

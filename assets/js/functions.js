@@ -379,10 +379,10 @@ function handleComplete() {
                         easing: 'linear',
                         to: 300,
                     }).on('finish', function () {
-                        cb();
+                        cb && cb();
                     });
                 } else {
-                    cb();
+                    cb && cb();
                 }
             };
             createAnimate($img3, function () {
@@ -513,7 +513,7 @@ function handleComplete() {
                         delay: 1000,
                         to: 300,
                     }).on('finish', function () {
-                        cb();
+                        cb && cb();
                     });
                 } else {
                     setTimeout(cb, 1000);
@@ -536,7 +536,7 @@ function handleComplete() {
                         delay: 600,
                         to: 100,
                     }).on('finish', function () {
-                        cb();
+                        cb && cb();
                     });
                 } else {
                     setTimeout(cb, 1000);
@@ -643,7 +643,7 @@ function handleComplete() {
                         delay: 1000,
                         to: 300,
                     }).on('finish', function () {
-                        cb();
+                        cb && cb();
                     });
                 } else {
                     setTimeout(cb, 1000);
@@ -666,7 +666,7 @@ function handleComplete() {
                         delay: 600,
                         to: 100,
                     }).on('finish', function () {
-                        cb();
+                        cb && cb();
                     });
                 } else {
                     setTimeout(cb, 1000);
@@ -929,6 +929,8 @@ function handleComplete() {
         },
         function page36_1($page, next) {
             var $imgContent = $page.find('.img-content');
+            var $typo = $page.find('.typo');
+            $typo.css({opacity: 0});
             var html = '';
             var work = 0, top = 0, left = 0;
             for (var i = 0; i < 6; i++) {
@@ -942,6 +944,22 @@ function handleComplete() {
             $imgContent.append(html);
             var $imgBox = $imgContent.find('.img-box');
             var preanimation = animation;
+            var createAnimate2 = function ($el, mixins, cb) {
+                animation = just.animate({
+                    targets: $el.get(0),
+                    mixins: mixins,
+                    fill: 'both',
+                    easing: 'linear',
+                    to: 600,
+                }).on('finish', function () {
+                    cb && cb();
+                });
+            };
+            createAnimate2($typo.eq(0), 'bounceInLeft', function () {
+                createAnimate2($typo.eq(1), 'bounceInLeft', function () {
+                    createAnimate2($typo.eq(2), 'bounceInLeft');
+                });
+            });
             animation = just.animate({
                 targets: $imgBox.toArray(),
                 delay: function () {
@@ -990,7 +1008,7 @@ function handleComplete() {
                         delay: 1000,
                         to: 300,
                     }).on('finish', function () {
-                        cb();
+                        cb && cb();
                     });
                 } else {
                     setTimeout(cb, 1000);
@@ -1066,8 +1084,7 @@ function handleComplete() {
                 var args = $.fn.toArray(arguments).slice(1);
                 // alert(JSON.stringify(args));
                 pages.eq(index - 1).hide();
-                pageList[index] && pageList[index].apply(null, [pages.eq(index), function () {
-                }]);
+                pageList[index] && pageList[index].apply(null, [pages.eq(index), next]);
                 index += 1;
             }
         }
@@ -1077,7 +1094,7 @@ function handleComplete() {
         };
     })();
     // sound.play();
-    runAnimate.next(35);
+    runAnimate.next();
     // runAnimate.next(37);
 }
 var loader = new PxLoader();
