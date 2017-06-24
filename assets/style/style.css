@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @font-face {
   font-family: 'hiragino';
-  src: url("../font/hiragino.ttf") format("truetype");
+  src: url("../font/hiragino.ttf?v1") format("truetype");
   font-weight: normal;
   font-style: normal; }
 *:not(input, textarea) {
