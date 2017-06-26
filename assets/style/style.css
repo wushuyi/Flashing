@@ -321,11 +321,11 @@
   height: 100vh;
   background-size: 100%; }
 .page22 .img1 {
-  background-image: url(../images/building1.png); }
+  background-image: url(../images/building1.png?v1); }
 .page22 .img2 {
-  background-image: url(../images/building2.png); }
+  background-image: url(../images/building2.png?v1); }
 .page22 .img3 {
-  background-image: url(../images/building3.png); }
+  background-image: url(../images/building3.png?v1); }
 .page22 .tit1 {
   width: 16rem;
   height: 2.89855rem;
@@ -516,9 +516,9 @@
 
 .page36_1 .tit1 {
   width: 16rem;
-  height: 3.47826rem;
+  height: 1.15942rem;
   margin-left: -8rem;
-  margin-top: -1.70048rem; }
+  margin-top: -0.54106rem; }
   .page36_1 .tit1:before {
     content: '';
     display: block;
@@ -542,6 +542,48 @@
   .page36_1 .img-content .img {
     width: 2.66667rem;
     height: 20vh; }
+
+.page36_2 .tit1 {
+  width: 16rem;
+  height: 2.31884rem;
+  margin-left: -8rem;
+  margin-top: -1.12077rem; }
+  .page36_2 .tit1:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -0.38647rem;
+    left: 0;
+    right: 0;
+    bottom: -0.38647rem;
+    background: #FFFFFF;
+    opacity: 0.6; }
+  .page36_2 .tit1 .typo {
+    z-index: 1;
+    position: relative;
+    color: #000000; }
+.page36_2 .img-top {
+  width: 16rem;
+  height: 12rem;
+  position: absolute; }
+  .page36_2 .img-top .img-box {
+    float: left;
+    width: 4rem;
+    height: 4rem; }
+  .page36_2 .img-top .img {
+    width: 100%;
+    height: 100%; }
+.page36_2 .img-bottom {
+  width: 16rem;
+  top: 12rem;
+  bottom: 0;
+  position: absolute; }
+  .page36_2 .img-bottom .img-box {
+    width: 16rem;
+    height: 50%; }
+  .page36_2 .img-bottom .img {
+    width: 100%;
+    height: 100%; }
 
 .page37_1 .img-box {
   position: absolute;

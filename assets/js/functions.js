@@ -32,7 +32,13 @@ var preloadImages = (function () {
         images.push('./assets/images/work/work' + i + '.png');
     }
     for (var i = 1; i < 4; i++) {
-        images.push('./assets/images/building' + i + '.png');
+        images.push('./assets/images/building' + i + '.png?v1');
+    }
+    for (var i = 1; i < 13; i++) {
+        images.push('./assets/images/type/type' + i + '.png');
+    }
+    for (var i = 1; i < 3; i++) {
+        images.push('./assets/images/class/class' + i + '.png');
     }
     return images;
 })();
@@ -708,21 +714,25 @@ function handleComplete() {
                 }
             }
             var $img = $page.find('.img');
-            $img.hide();
+            $img.css({opacity: 0});
             var winW = $(window).width();
             var css1 = [
                 {
+                    opacity: 1,
                     transform: 'translate3d(' + winW + 'px, 0, 0)'
                 },
                 {
+                    opacity: 1,
                     transform: 'translate3d(0, 0, 0)'
                 },
             ];
             var css2 = [
                 {
+                    opacity: 1,
                     transform: 'translate3d(' + -winW + 'px, 0, 0)'
                 },
                 {
+                    opacity: 1,
                     transform: 'translate3d(0, 0, 0)'
                 },
             ];
@@ -737,9 +747,6 @@ function handleComplete() {
                 }).on('finish', function () {
                     cb && cb();
                 });
-                setTimeout(function () {
-                    $el.show();
-                }, 10);
             };
             // createAnimate($img2, css2);
             createAnimate($imgList[0], css1, function () {
@@ -955,15 +962,11 @@ function handleComplete() {
                     cb && cb();
                 });
             };
-            createAnimate2($typo.eq(0), 'bounceInLeft', function () {
-                createAnimate2($typo.eq(1), 'bounceInLeft', function () {
-                    createAnimate2($typo.eq(2), 'bounceInLeft');
-                });
-            });
+            createAnimate2($typo.eq(0), 'bounceInLeft');
             animation = just.animate({
                 targets: $imgBox.toArray(),
                 delay: function () {
-                    return '+=200ms';
+                    return '+=150ms';
                 },
                 mixins: 'flipInY',
                 fill: 'both',
@@ -971,6 +974,107 @@ function handleComplete() {
             }).on('finish', function () {
                 setTimeout(next, 100);
             });
+            setTimeout(function () {
+                $page.show();
+                preanimation && preanimation.cancel();
+            }, 10);
+        },
+        function page36_2($page, next) {
+            var preanimation = animation;
+            var $imgTop = $page.find('.img-top');
+            var $imgBottom = $page.find('.img-bottom');
+            var $typo = $page.find('.typo');
+            var topHtml = (function () {
+                var html = '';
+                for (var i = 1; i <= 12; i++) {
+                    html += '<div class="img-box">' +
+                        '<div class="img" style="background-image: url(./assets/images/type/type' + (i) + '.png);"></div>' +
+                        '</div>';
+                }
+                return html;
+            })();
+            var bottomHtml = (function () {
+                var html = '';
+                for (var i = 1; i <= 2; i++) {
+                    html += '<div class="img-box">' +
+                        '<div class="img" style="background-image: url(./assets/images/class/class' + (i) + '.png);"></div>' +
+                        '</div>';
+                }
+                return html;
+            })();
+            $imgTop.html(topHtml);
+            $imgBottom.html(bottomHtml);
+            var $topBox = $imgTop.find('.img-box');
+            var $bottomBox = $imgBottom.find('.img-box');
+            $typo.css({opacity: 0});
+            $topBox.css({opacity: 0});
+            $bottomBox.css({opacity: 0});
+            var createAnimate2 = function ($el, mixins, cb) {
+                animation = just.animate({
+                    targets: $el.get(0),
+                    mixins: mixins,
+                    fill: 'both',
+                    easing: 'linear',
+                    to: 600,
+                }).on('finish', function () {
+                    cb && cb();
+                });
+            };
+            createAnimate2($typo.eq(0), 'bounceInLeft', function () {
+                setTimeout(function () {
+                    createAnimate2($typo.eq(1), 'bounceInLeft');
+                }, 1000);
+            });
+
+            just.animate({
+                targets: $imgTop.find('.img-box').toArray(),
+                delay: function () {
+                    return '+=120ms';
+                },
+                mixins: 'flipInY',
+                fill: 'both',
+                easing: 'easeInOut',
+            }).on('finish', function () {
+                var winW = $(window).width();
+                var css1 = [
+                    {
+                        opacity: 1,
+                        transform: 'translate3d(' + winW + 'px, 0, 0)',
+                    },
+                    {
+                        opacity: 1,
+                        transform: 'translate3d(0, 0, 0)',
+                    },
+                ];
+                var css2 = [
+                    {
+                        opacity: 1,
+                        transform: 'translate3d(' + -winW + 'px, 0, 0)',
+                    },
+                    {
+                        opacity: 1,
+                        transform: 'translate3d(0, 0, 0)',
+                    },
+                ];
+                var preanimation = animation;
+                var createAnimate = function ($el, css, cb) {
+                    animation = just.animate({
+                        targets: $el.get(0),
+                        css: css,
+                        fill: 'both',
+                        easing: 'easeOutCubic',
+                        to: 300,
+                    }).on('finish', function () {
+                        cb && cb();
+                    });
+                };
+                createAnimate($bottomBox.eq(0), css1, function () {
+                    createAnimate($bottomBox.eq(1), css2, function () {
+                        setTimeout(next, 100);
+                    });
+                });
+            });
+
             setTimeout(function () {
                 $page.show();
                 preanimation && preanimation.cancel();

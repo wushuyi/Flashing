@@ -431,13 +431,13 @@ $designWidth: 414;
     background-size: 100%;
   }
   .img1 {
-    background-image: url(../images/building1.png);
+    background-image: url(../images/building1.png?v1);
   }
   .img2 {
-    background-image: url(../images/building2.png);
+    background-image: url(../images/building2.png?v1);
   }
   .img3 {
-    background-image: url(../images/building3.png);
+    background-image: url(../images/building3.png?v1);
   }
   .tit1 {
     width: px2rem(414);
@@ -704,9 +704,9 @@ $designWidth: 414;
 .page36_1 {
   .tit1 {
     width: px2rem(414);
-    height: px2rem(90);
+    height: px2rem(30);
     margin-left: px2rem(-207);
-    margin-top: px2rem(-44);
+    margin-top: px2rem(-14);
     &:before {
       content: '';
       display: block;
@@ -735,6 +735,60 @@ $designWidth: 414;
     .img {
       width: px2rem(69);
       height: 20vh;
+    }
+  }
+}
+
+.page36_2 {
+  .tit1 {
+    width: px2rem(414);
+    height: px2rem(60);
+    margin-left: px2rem(-207);
+    margin-top: px2rem(-29);
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: px2rem(-10);
+      left: 0;
+      right: 0;
+      bottom: px2rem(-10);
+      background: #FFFFFF;
+      opacity: 0.6;
+    }
+    .typo {
+      z-index: 1;
+      position: relative;
+      color: #000000;
+      //font-size: px2rem(16);
+    }
+  }
+  .img-top {
+    width: px2rem(414);
+    height: px2rem(310.5);
+    position: absolute;
+    .img-box {
+      float: left;
+      width: px2rem(103.5);
+      height: px2rem(103.5);
+    }
+    .img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .img-bottom {
+    width: px2rem(414);
+    top: px2rem(310.5);
+    bottom: 0;
+    position: absolute;
+    .img-box {
+      width: px2rem(414);
+      height: 50%;
+    }
+    .img {
+      width: 100%;
+      height: 100%;
     }
   }
 }
@@ -776,7 +830,7 @@ $designWidth: 414;
       position: absolute;
       color: #000000;
       //font-size: px2rem(16);
-      &:nth-of-type(3){
+      &:nth-of-type(3) {
         line-height: 200%;
         font-size: px2rem(17.5);
       }
