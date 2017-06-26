@@ -45,6 +45,44 @@
     <link rel="stylesheet" href="assets/style/style.css?v1">
 
     <script src="assets/libs/script.js/2.5.8/script.min.js"></script>
+    <script src="assets/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="assets/js/wxshare.js"></script>
+    <script>
+        // 设置微信分享
+        var isWeiXin = (function () {
+            var ua = window.navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                return true;
+            } else {
+                return false;
+            }
+        })();
+
+        if (isWeiXin) {
+            var getQueryConfig = {
+                'version': "1.0.0",
+                "platform": "H5"
+            };
+
+            function getWeiXinShareUrl(url) {
+                return 'http://api.5151study.com/weixin/signature?url=' + url;
+            }
+
+            var reqUrl = getWeiXinShareUrl(location.href);
+
+            $.get(reqUrl, getQueryConfig, function (data) {
+                wxshare.init({
+                    initData: data.data,
+                    setData: {
+                        title: '这个潜伏在教育界的神秘力量终于出现了',
+                        descContent: '2017上海视觉艺术学院德稻实验班一期毕业典礼',
+                        imgUrl: 'http://m.5151study.com/Flashing/assets/images/favicon.png',
+                    }
+                });
+            });
+        }
+    </script>
 </head>
 <body>
 <div style='margin:0 auto;width:0px;height:0px;overflow:hidden;'>
@@ -407,7 +445,6 @@
     $script.path('./assets/');
     $script([
         'libs/pxloader/pxloader-all.js' + varsion,
-        'libs/jquery/3.2.1/jquery.min.js' + varsion,
         'libs/howler/2.0.4/howler.min.js' + varsion,
         'libs/web-animations/web-animations.min.js' + varsion,
         'libs/just-animate/1.2.3/just-animate-all.min.js' + varsion,
