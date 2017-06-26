@@ -394,7 +394,7 @@ function handleComplete() {
             createAnimate($img3, function () {
                 createAnimate($img2, function () {
                     createAnimate($img1, function () {
-                        setTimeout(next, 100);
+                        setTimeout(next, 600);
                     }, true);
                 });
             });
