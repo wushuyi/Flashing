@@ -253,15 +253,9 @@ function handleComplete() {
             setTimeout(next, 400);
         },
         function page16($page, next) {
-            $page.show();
-            var $tit1 = $page.find('.tit1');
-            var $tit2 = $page.find('.tit2');
-            var $tit3 = $page.find('.tit3');
-            var $tit4 = $page.find('.tit4');
-            $tit1.hide();
-            $tit2.hide();
-            $tit3.hide();
-            $tit4.hide();
+            var $tit = $page.find('.center');
+            $tit.css({opacity: 0});
+
             var preanimation = animation;
             // var allCss = [
             //     {
@@ -278,12 +272,7 @@ function handleComplete() {
                 animation = just.animate({
                     targets: $el.get(0),
                     mixins: mixins,
-                    delay: function () {
-                        setTimeout(function () {
-                            $el.show();
-                        }, 20);
-                        return 0;
-                    },
+                    delay: 0,
                     to: 400,
                     fill: 'both',
                     easing: 'easeIn',
@@ -298,15 +287,17 @@ function handleComplete() {
                     setTimeout(function () {
                         cb && cb();
                     }, 20);
-
                 });
             };
 
-            createAnimate($tit1, 'bounceInDown', function () {
-                createAnimate($tit2, 'fadeInUp', function () {
-                    createAnimate($tit3, 'fadeInRight', function () {
-                        createAnimate($tit4, 'flipInY', function () {
-                            setTimeout(next, 10);
+            window.$tit = $tit;
+            window.createAnimate = createAnimate;
+
+            createAnimate($tit.eq(0), 'flipInY', function () {
+                createAnimate($tit.eq(1), 'fadeInUp', function () {
+                    createAnimate($tit.eq(2), 'fadeInRight', function () {
+                        createAnimate($tit.eq(3), 'flipInY', function () {
+                            setTimeout(next, 100);
                         });
                     });
                 });
